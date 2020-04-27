@@ -1562,7 +1562,7 @@ background-color: rgb(171, 152, 203);</string>
     <rect>
      <x>335</x>
      <y>15</y>
-     <width>151</width>
+     <width>211</width>
      <height>61</height>
     </rect>
    </property>
@@ -1614,6 +1614,31 @@ border-radius: 10px;</string>
     <property name="styleSheet">
      <string notr="true">
 border-image: url(:/new/prefix1/icon/Fichier 1.png);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="autoDefault">
+     <bool>true</bool>
+    </property>
+    <property name="default">
+     <bool>true</bool>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_eleves_4">
+    <property name="geometry">
+     <rect>
+      <x>150</x>
+      <y>5</y>
+      <width>51</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/new/prefix1/icon/bus.png);</string>
     </property>
     <property name="text">
      <string/>
