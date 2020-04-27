@@ -1303,7 +1303,7 @@ border : 1px solid;
 ;}</string>
      </property>
      <property name="currentIndex">
-      <number>1</number>
+      <number>2</number>
      </property>
      <widget class="QWidget" name="page_8">
       <widget class="QLabel" name="label_10">
@@ -1966,8 +1966,8 @@ background-color: rgb(171, 152, 203);</string>
     <widget class="QLabel" name="label_14">
      <property name="geometry">
       <rect>
-       <x>37</x>
-       <y>30</y>
+       <x>30</x>
+       <y>20</y>
        <width>221</width>
        <height>31</height>
       </rect>
@@ -1984,24 +1984,33 @@ font-weight:bold;</string>
     <widget class="QTableView" name="tab_reclamation">
      <property name="geometry">
       <rect>
-       <x>17</x>
-       <y>30</y>
-       <width>601</width>
-       <height>301</height>
+       <x>5</x>
+       <y>60</y>
+       <width>581</width>
+       <height>341</height>
       </rect>
      </property>
     </widget>
-    <widget class="QStackedWidget" name="stackedWidget_3">
+    <widget class="QStackedWidget" name="stackedWidget_crud_rec">
      <property name="geometry">
       <rect>
-       <x>627</x>
-       <y>30</y>
-       <width>291</width>
-       <height>401</height>
+       <x>590</x>
+       <y>60</y>
+       <width>271</width>
+       <height>341</height>
       </rect>
      </property>
+     <property name="styleSheet">
+      <string notr="true">QStackedWidget{
+
+border : 1px solid;
+	border-color: rgb(171, 152, 203);
+
+
+;}</string>
+     </property>
      <property name="currentIndex">
-      <number>1</number>
+      <number>3</number>
      </property>
      <widget class="QWidget" name="page_14">
       <widget class="QSplitter" name="splitter_6">
@@ -2045,7 +2054,7 @@ font-weight:bold;</string>
         </property>
        </widget>
       </widget>
-      <widget class="QLineEdit" name="lineEdit_id_modif_equip_2">
+      <widget class="QLineEdit" name="lineEdit_id_ar">
        <property name="geometry">
         <rect>
          <x>80</x>
@@ -2061,7 +2070,7 @@ border-radius: 10px;
 background-color: rgb(171, 152, 203);</string>
        </property>
       </widget>
-      <widget class="QLineEdit" name="lineEdit_id_modif_equip_3">
+      <widget class="QLineEdit" name="lineEdit_nom_ar">
        <property name="geometry">
         <rect>
          <x>80</x>
@@ -2077,7 +2086,7 @@ border-radius: 10px;
 background-color: rgb(171, 152, 203);</string>
        </property>
       </widget>
-      <widget class="QLineEdit" name="lineEdit_id_modif_equip_4">
+      <widget class="QLineEdit" name="lineEdit_mail_ar">
        <property name="geometry">
         <rect>
          <x>80</x>
@@ -2093,7 +2102,7 @@ border-radius: 10px;
 background-color: rgb(171, 152, 203);</string>
        </property>
       </widget>
-      <widget class="QDateEdit" name="dateEdit_dlc_2">
+      <widget class="QDateEdit" name="dateEdit_date_ar">
        <property name="geometry">
         <rect>
          <x>80</x>
@@ -2112,13 +2121,13 @@ background-color: rgb(171, 152, 203);</string>
         <bool>true</bool>
        </property>
       </widget>
-      <widget class="QTextEdit" name="textEdit">
+      <widget class="QTextEdit" name="textEdit_msg_ar">
        <property name="geometry">
         <rect>
          <x>80</x>
          <y>170</y>
-         <width>201</width>
-         <height>141</height>
+         <width>171</width>
+         <height>91</height>
         </rect>
        </property>
        <property name="styleSheet">
@@ -2146,11 +2155,11 @@ font-weight:bold;</string>
         <string>Ajouter une réclamation</string>
        </property>
       </widget>
-      <widget class="QPushButton" name="pushButton_ok_a_a_2">
+      <widget class="QPushButton" name="pushButton_ok_a_r">
        <property name="geometry">
         <rect>
          <x>160</x>
-         <y>340</y>
+         <y>280</y>
          <width>41</width>
          <height>41</height>
         </rect>
@@ -2166,7 +2175,7 @@ font-weight:bold;</string>
        <property name="geometry">
         <rect>
          <x>208</x>
-         <y>340</y>
+         <y>280</y>
          <width>41</width>
          <height>41</height>
         </rect>
@@ -2180,7 +2189,7 @@ font-weight:bold;</string>
       </widget>
      </widget>
      <widget class="QWidget" name="page_15">
-      <widget class="QLineEdit" name="lineEdit_id_modif_equip_5">
+      <widget class="QLineEdit" name="lineEdit_mail_mr">
        <property name="geometry">
         <rect>
          <x>80</x>
@@ -2196,7 +2205,7 @@ border-radius: 10px;
 background-color: rgb(171, 152, 203);</string>
        </property>
       </widget>
-      <widget class="QLineEdit" name="lineEdit_id_modif_equip_6">
+      <widget class="QLineEdit" name="lineEdit_id_mr">
        <property name="geometry">
         <rect>
          <x>80</x>
@@ -2230,7 +2239,7 @@ font-weight:bold;</string>
         <string>modifier une réclamation</string>
        </property>
       </widget>
-      <widget class="QLineEdit" name="lineEdit_id_modif_equip_7">
+      <widget class="QLineEdit" name="lineEdit_nom_mr">
        <property name="geometry">
         <rect>
          <x>80</x>
@@ -2246,11 +2255,11 @@ border-radius: 10px;
 background-color: rgb(171, 152, 203);</string>
        </property>
       </widget>
-      <widget class="QPushButton" name="pushButton_ok_a_a_3">
+      <widget class="QPushButton" name="pushButton_ok_mr">
        <property name="geometry">
         <rect>
-         <x>160</x>
-         <y>340</y>
+         <x>150</x>
+         <y>280</y>
          <width>41</width>
          <height>41</height>
         </rect>
@@ -2262,13 +2271,13 @@ background-color: rgb(171, 152, 203);</string>
         <string/>
        </property>
       </widget>
-      <widget class="QTextEdit" name="textEdit_2">
+      <widget class="QTextEdit" name="textEdit_msg_mr">
        <property name="geometry">
         <rect>
          <x>80</x>
          <y>170</y>
-         <width>201</width>
-         <height>141</height>
+         <width>171</width>
+         <height>91</height>
         </rect>
        </property>
        <property name="styleSheet">
@@ -2281,8 +2290,8 @@ background-color: rgb(171, 152, 203);</string>
       <widget class="QPushButton" name="pushButton_annuler_ajouter_aliment_3">
        <property name="geometry">
         <rect>
-         <x>208</x>
-         <y>340</y>
+         <x>198</x>
+         <y>280</y>
          <width>41</width>
          <height>41</height>
         </rect>
@@ -2294,7 +2303,7 @@ background-color: rgb(171, 152, 203);</string>
         <string/>
        </property>
       </widget>
-      <widget class="QDateEdit" name="dateEdit_dlc_3">
+      <widget class="QDateEdit" name="dateEdit_mr">
        <property name="geometry">
         <rect>
          <x>80</x>
@@ -2355,21 +2364,21 @@ background-color: rgb(171, 152, 203);</string>
        </widget>
       </widget>
       <zorder>splitter_7</zorder>
-      <zorder>lineEdit_id_modif_equip_5</zorder>
-      <zorder>lineEdit_id_modif_equip_6</zorder>
+      <zorder>lineEdit_mail_mr</zorder>
+      <zorder>lineEdit_id_mr</zorder>
       <zorder>label_22</zorder>
-      <zorder>lineEdit_id_modif_equip_7</zorder>
-      <zorder>pushButton_ok_a_a_3</zorder>
-      <zorder>textEdit_2</zorder>
+      <zorder>lineEdit_nom_mr</zorder>
+      <zorder>pushButton_ok_mr</zorder>
+      <zorder>textEdit_msg_mr</zorder>
       <zorder>pushButton_annuler_ajouter_aliment_3</zorder>
-      <zorder>dateEdit_dlc_3</zorder>
+      <zorder>dateEdit_mr</zorder>
      </widget>
      <widget class="QWidget" name="page_16">
       <widget class="QPushButton" name="pushButton_12">
        <property name="geometry">
         <rect>
-         <x>208</x>
-         <y>340</y>
+         <x>200</x>
+         <y>280</y>
          <width>41</width>
          <height>41</height>
         </rect>
@@ -2381,11 +2390,11 @@ background-color: rgb(171, 152, 203);</string>
         <string/>
        </property>
       </widget>
-      <widget class="QLineEdit" name="lineEdit_id_supp_equip_2">
+      <widget class="QLineEdit" name="lineEdit_id_supp_rec">
        <property name="geometry">
         <rect>
-         <x>79</x>
-         <y>56</y>
+         <x>70</x>
+         <y>70</y>
          <width>191</width>
          <height>20</height>
         </rect>
@@ -2406,8 +2415,18 @@ background-color: rgb(171, 152, 203);</string>
          <height>31</height>
         </rect>
        </property>
+       <property name="font">
+        <font>
+         <family>Quicksand</family>
+         <pointsize>12</pointsize>
+         <weight>75</weight>
+         <italic>false</italic>
+         <bold>true</bold>
+         <underline>true</underline>
+        </font>
+       </property>
        <property name="styleSheet">
-        <string notr="true">font: 75 13pt &quot;Quicksand&quot;;
+        <string notr="true">font: 75 12pt &quot;Quicksand&quot;;
 text-decoration: underline;
 font-weight:bold;</string>
        </property>
@@ -2415,11 +2434,11 @@ font-weight:bold;</string>
         <string>Supprimer une réclamation</string>
        </property>
       </widget>
-      <widget class="QPushButton" name="pushButton_s_e_2">
+      <widget class="QPushButton" name="pushButton_s_r">
        <property name="geometry">
         <rect>
-         <x>160</x>
-         <y>340</y>
+         <x>152</x>
+         <y>280</y>
          <width>41</width>
          <height>41</height>
         </rect>
@@ -2434,8 +2453,8 @@ font-weight:bold;</string>
       <widget class="QLabel" name="label_24">
        <property name="geometry">
         <rect>
-         <x>30</x>
-         <y>60</y>
+         <x>21</x>
+         <y>74</y>
          <width>47</width>
          <height>14</height>
         </rect>
@@ -2446,7 +2465,7 @@ font-weight:bold;</string>
       </widget>
      </widget>
      <widget class="QWidget" name="page_13">
-      <widget class="QPushButton" name="pushButton_print_aliment_2">
+      <widget class="QPushButton" name="pushButton_print_rec">
        <property name="geometry">
         <rect>
          <x>40</x>
@@ -2466,7 +2485,7 @@ border-image: url(:/new/prefix1/icon/print.png);</string>
       <widget class="QLabel" name="label_164">
        <property name="geometry">
         <rect>
-         <x>20</x>
+         <x>10</x>
          <y>30</y>
          <width>261</width>
          <height>41</height>
@@ -2475,7 +2494,7 @@ border-image: url(:/new/prefix1/icon/print.png);</string>
        <property name="font">
         <font>
          <family>Quicksand</family>
-         <pointsize>15</pointsize>
+         <pointsize>14</pointsize>
          <weight>75</weight>
          <italic>false</italic>
          <bold>true</bold>
@@ -2483,7 +2502,7 @@ border-image: url(:/new/prefix1/icon/print.png);</string>
         </font>
        </property>
        <property name="styleSheet">
-        <string notr="true">font: 75 15pt &quot;Quicksand&quot;;
+        <string notr="true">font: 75 14pt &quot;Quicksand&quot;;
 text-decoration: underline;
 font-weight:bold;</string>
        </property>
@@ -2491,7 +2510,7 @@ font-weight:bold;</string>
         <string>exporter réclamations</string>
        </property>
       </widget>
-      <widget class="QPushButton" name="pushButton_pdf_aliment_2">
+      <widget class="QPushButton" name="pushButton_pdf_rec">
        <property name="geometry">
         <rect>
          <x>50</x>
@@ -2513,8 +2532,8 @@ border-image: url(:/new/prefix1/icon/pdf.png);</string>
     <widget class="QFrame" name="frame_5">
      <property name="geometry">
       <rect>
-       <x>20</x>
-       <y>370</y>
+       <x>10</x>
+       <y>410</y>
        <width>271</width>
        <height>71</height>
       </rect>
@@ -2531,7 +2550,7 @@ background-color: rgb(171, 152, 203);</string>
      <property name="frameShadow">
       <enum>QFrame::Raised</enum>
      </property>
-     <widget class="QPushButton" name="pushButton_ajouter_aliment_2">
+     <widget class="QPushButton" name="pushButton_ajouter_rec">
       <property name="geometry">
        <rect>
         <x>10</x>
@@ -2556,7 +2575,7 @@ background-color: rgb(171, 152, 203);</string>
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_modifier_aliment_2">
+     <widget class="QPushButton" name="pushButton_modifier_rec">
       <property name="geometry">
        <rect>
         <x>73</x>
@@ -2583,7 +2602,7 @@ background-color: rgb(171, 152, 203);</string>
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_supprimer_aliment_2">
+     <widget class="QPushButton" name="pushButton_supprimer_rec">
       <property name="geometry">
        <rect>
         <x>137</x>
@@ -2609,7 +2628,7 @@ border-image: url(:/new/prefix1/icon/suppr.png);</string>
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_exporter_aliment_2">
+     <widget class="QPushButton" name="pushButton_exporter_rec">
       <property name="geometry">
        <rect>
         <x>202</x>
