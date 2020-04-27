@@ -2,6 +2,7 @@
 #define GESTION_H
 #include "eleves.h"
 #include "salles.h"
+#include "bus.h"
 #include <QDialog>
 
 namespace Ui {
@@ -74,20 +75,53 @@ private slots:
     void on_pushButton_RESETSS_clicked();
 
 
-    void on_pushButton_stock_clicked();
+
 
     void on_pushButton_15_clicked();
 
     void on_pushButton_16_clicked();
 
-
-
     void on_pushButton_17_clicked();
+
+
+    void on_pushButton_gest_trans_clicked();
+
+        void on_pushButton_AjouterT_clicked();
+
+        void on_pushButton_ModifierT_clicked();
+
+        void on_pushButton_SupprimerT_clicked();
+
+        void on_pushButton_AjoutTrans_clicked();
+
+        void on_lineEdit_Mo_id_T_textChanged();
+
+        void on_pushButton_ModifTrans_clicked();
+
+        void on_pushButton_SupprimerTrans_clicked();
+
+        void on_lineEdit_RechercheT_textChanged();
+
+        void on_pushButton_PDFT_clicked();
+
+        void on_pushButton_resetT_clicked();
+
+        void on_pushButton_resetTm_clicked();
+
+        void on_pushButton_resetTs_clicked();
+
+
+
+
+
+
+        void on_pushButton_stock_clicked();
 
 private:
     Ui::Gestion *ui;
     eleves tmpeleve;
     salles tmpsalle;
+    bus tmpbus;
 };
 
 #endif // GESTION_H

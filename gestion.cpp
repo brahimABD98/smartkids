@@ -16,6 +16,7 @@ Gestion::Gestion(QWidget *parent) :
     ui->setupUi(this);
     ui->tableView_E->setModel(tmpeleve.afficher());
     ui->tableView_S->setModel(tmpsalle.afficher());
+    ui->tableView_T->setModel(tmpbus.afficher());
 }
 
 Gestion::~Gestion()
@@ -506,13 +507,6 @@ void Gestion::on_pushButton_RESETSS_clicked()
 
 
 
-void Gestion::on_pushButton_stock_clicked()
-{
-    hide();
-    stock s;
-    s.exec();
-
-}
 
 void Gestion::on_pushButton_15_clicked()
 {
@@ -535,4 +529,252 @@ void Gestion::on_pushButton_17_clicked()
     hide();
     gestiono9 G;
     G.exec();
+}
+
+void Gestion::on_pushButton_gest_trans_clicked()
+{
+    ui->stackedWidget_2->setCurrentIndex(2);
+}
+
+void Gestion::on_pushButton_AjouterT_clicked()
+{
+    ui->stackedWidget_4->setCurrentIndex(0);
+}
+
+void Gestion::on_pushButton_ModifierT_clicked()
+{
+    ui->stackedWidget_4->setCurrentIndex(1);
+}
+
+void Gestion::on_pushButton_SupprimerT_clicked()
+{
+    ui->stackedWidget_4->setCurrentIndex(2);
+}
+
+void Gestion::on_pushButton_AjoutTrans_clicked()
+{
+    int id = ui->lineEdit_Aj_id_T->text().toInt();
+    QString model = ui->lineEdit_Aj_mod_T->text();
+    QString chauff =ui->lineEdit_Aj_ch_T->text();
+    QString zone = ui->lineEdit_Aj_zone_T->text();
+    int n = ui->lineEdit_Aj_nbrp_T->text().toInt();
+    bus b(id,model,chauff,zone,n);
+    bool test=b.ajouter();
+    if(test)
+    {ui->tableView_T->setModel(tmpbus.afficher());//refresh
+    QMessageBox::information(nullptr, QObject::tr("Ajouter un bus"),
+                      QObject::tr("Bus ajouté.\n"
+                                  "Click Cancel to exit."), QMessageBox::Cancel);
+
+    }
+      else
+          QMessageBox::critical(nullptr, QObject::tr("Ajouter un bus"),
+                      QObject::tr("Erreur !.\n"
+                                  "Click Cancel to exit."), QMessageBox::Cancel);
+}
+
+void Gestion::on_lineEdit_Mo_id_T_textChanged()
+{
+    int id=ui->lineEdit_Mo_id_T->text().toInt();
+        QSqlQuery query=tmpbus.rechercher_id(id);
+        QString mod ,chauff,zone;
+        int n;
+
+
+        if (query.next())
+                {
+                mod= query.value(1).toString();
+                ui->lineEdit_Mo_mod_T->setText(mod);
+
+                chauff= query.value(2).toString();
+                ui->lineEdit_Mo_ch_T->setText(chauff);
+                zone= query.value(3).toString();
+                ui->lineEdit_Mo_zone_T->setText(zone);
+                n= query.value(4).toInt();
+                ui->lineEdit_Mo_nbrp_T->setText(QString::number(n));
+                }
+                else
+                   {
+            ui->lineEdit_Mo_mod_T->clear();
+            ui->lineEdit_Mo_ch_T->clear();
+            ui->lineEdit_Mo_zone_T->clear();
+            ui->lineEdit_Mo_nbrp_T->clear();
+
+        }
+}
+
+void Gestion::on_pushButton_ModifTrans_clicked()
+{
+    QString model = ui->lineEdit_Mo_mod_T->text();
+    QString chauff =ui->lineEdit_Mo_ch_T->text();
+    QString zone = ui->lineEdit_Mo_zone_T->text();
+    int n = ui->lineEdit_Mo_nbrp_T->text().toInt();
+
+
+
+
+                bool test =tmpbus.modifier(ui->lineEdit_Mo_id_T->text().toInt(),model,chauff,zone,n);
+
+                  if(test)
+                  {
+                        ui->tableView_T->setModel(tmpbus.afficher());//refresh
+                  QMessageBox::information(nullptr, QObject::tr("Modifier Bus"),
+                                    QObject::tr("Bus modifié.\n"
+                                                "Click Cancel to exit."), QMessageBox::Cancel);
+
+                  }
+                    else
+                        QMessageBox::critical(nullptr, QObject::tr("Bus Eleve"),
+                                    QObject::tr("Erreur !.\n"
+                                       "Click Cancel to exit."), QMessageBox::Cancel);
+}
+
+void Gestion::on_pushButton_SupprimerTrans_clicked()
+{
+    int id =ui->lineEdit_Su_id_T->text().toInt();
+        QSqlQuery query=tmpbus.rechercher_id(id);
+        QString nom ;
+
+
+        if (query.next())
+                {
+                nom= query.value(1).toString();
+
+                QMessageBox msgBox;
+                msgBox.setWindowTitle("Confirmation");
+                msgBox.setText("voulez-vous vraiment supprimer Le bus ?");
+                msgBox.setInformativeText(QString("%1 : %2").arg(id).arg(nom));
+                msgBox.setStandardButtons(QMessageBox::Yes);
+                msgBox.addButton(QMessageBox::No);
+                msgBox.setDefaultButton(QMessageBox::No);
+                if(msgBox.exec() == QMessageBox::Yes){
+
+
+
+
+
+            bool test =tmpbus.supprimer(id);
+
+
+
+
+
+
+
+                if(test)
+                {ui->tableView_T->setModel(tmpbus.afficher());//refresh
+                    QMessageBox::information(nullptr, QObject::tr("Supprimer Bus"),
+                                QObject::tr("Bus supprimé.\n"
+                                            "Click Cancel to exit."), QMessageBox::Cancel);
+
+                }
+                else
+                    QMessageBox::critical(nullptr, QObject::tr("Supprimer Bus"),QObject::tr("Erreur !.\n""Click Cancel to exit."), QMessageBox::Cancel);
+            }
+
+
+                }
+
+        else
+            QMessageBox::critical(nullptr, QObject::tr("Supprimer Bus"),
+                        QObject::tr("Erreur Bus introuvable !\n"
+                                    "Click Cancel to exit."), QMessageBox::Cancel);
+}
+
+void Gestion::on_lineEdit_RechercheT_textChanged()
+{
+    if(ui->lineEdit_RechercheT->text() == "")
+                {
+                    ui->tableView_T->setModel(tmpbus.afficher());
+                }
+                else
+                {
+                     ui->tableView_T->setModel(tmpbus.rechercher(ui->lineEdit_RechercheT->text()));
+                }
+}
+
+void Gestion::on_pushButton_PDFT_clicked()
+{
+    QString strStream;
+                QTextStream out(&strStream);
+                const int rowCount = ui->tableView_T->model()->rowCount();
+                const int columnCount =ui->tableView_T->model()->columnCount();
+
+                out <<  "<html>\n"
+                        "<head>\n"
+                        "<meta Content=\"Text/html; charset=Windows-1251\">\n"
+                        <<  QString("<title>%1</title>\n").arg("bus")
+                        <<  "</head>\n"
+                        "<body bgcolor=#CFC4E1 link=#5000A0>\n"
+                            "<img src='D:/Users/alaam/Documents/SMART/icon/logo.webp' width='100' height='100'>\n"
+                            "<h1>Liste des eleves</h1>"
+
+
+
+                            "<table border=1 cellspacing=0 cellpadding=2>\n";
+
+
+                // headers
+                    out << "<thead><tr bgcolor=#f0f0f0>";
+                    for (int column = 0; column < columnCount; column++)
+                        if (!ui->tableView_T->isColumnHidden(column))
+                            out << QString("<th>%1</th>").arg(ui->tableView_T->model()->headerData(column, Qt::Horizontal).toString());
+                    out << "</tr></thead>\n";
+                    // data table
+                       for (int row = 0; row < rowCount; row++) {
+                           out << "<tr>";
+                           for (int column = 0; column < columnCount; column++) {
+                               if (!ui->tableView_T->isColumnHidden(column)) {
+                                   QString data = ui->tableView_T->model()->data(ui->tableView_T->model()->index(row, column)).toString().simplified();
+                                   out << QString("<td bkcolor=0>%1</td>").arg((!data.isEmpty()) ? data : QString("&nbsp;"));
+                               }
+                           }
+                           out << "</tr>\n";
+                       }
+                       out <<  "</table>\n"
+                           "</body>\n"
+                           "</html>\n";
+
+                       QTextDocument *document = new QTextDocument();
+                       document->setHtml(strStream);
+
+                       QPrinter printer;
+
+                       QPrintDialog *dialog = new QPrintDialog(&printer, NULL);
+                       if (dialog->exec() == QDialog::Accepted) {
+                           document->print(&printer);
+                    }
+}
+
+void Gestion::on_pushButton_resetT_clicked()
+{
+    ui->lineEdit_Aj_id_T->clear();
+    ui->lineEdit_Aj_mod_T->clear();
+    ui->lineEdit_Aj_ch_T->clear();
+    ui->lineEdit_Aj_zone_T->clear();
+    ui->lineEdit_Aj_nbrp_T->clear();
+}
+
+void Gestion::on_pushButton_resetTm_clicked()
+{
+    ui->lineEdit_Mo_id_T->clear();
+    ui->lineEdit_Mo_mod_T->clear();
+    ui->lineEdit_Mo_ch_T->clear();
+    ui->lineEdit_Mo_zone_T->clear();
+    ui->lineEdit_Mo_nbrp_T->clear();
+
+}
+
+void Gestion::on_pushButton_resetTs_clicked()
+{
+    ui->lineEdit_Su_id_T->clear();
+}
+
+
+
+void Gestion::on_pushButton_stock_clicked()
+{
+    hide();
+    stock se;
+    se.exec();
 }

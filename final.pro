@@ -18,6 +18,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     aliment.cpp \
+    bus.cpp \
     charrad/deponse.cpp \
     charrad/gestiono9.cpp \
     charrad/revenu.cpp \
@@ -39,6 +40,7 @@ SOURCES += \
 
 HEADERS += \
     aliment.h \
+    bus.h \
     charrad/deponse.h \
     charrad/gestiono9.h \
     charrad/revenu.h \
