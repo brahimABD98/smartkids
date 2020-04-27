@@ -1,0 +1,2040 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>stock</class>
+ <widget class="QDialog" name="stock">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>943</width>
+    <height>586</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(207, 196, 225);</string>
+  </property>
+  <widget class="QPushButton" name="pushButton_home">
+   <property name="geometry">
+    <rect>
+     <x>787</x>
+     <y>0</y>
+     <width>71</width>
+     <height>71</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-image: url(:/new/prefix1/icon/logo.webp);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="autoDefault">
+    <bool>true</bool>
+   </property>
+   <property name="default">
+    <bool>true</bool>
+   </property>
+   <property name="flat">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QFrame" name="frame">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>371</width>
+     <height>71</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-color: rgb(255, 255, 255);
+background-color: rgb(171, 152, 203);
+border-radius: 10px;</string>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+   <widget class="QPushButton" name="pushButton_comp">
+    <property name="geometry">
+     <rect>
+      <x>220</x>
+      <y>5</y>
+      <width>61</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">
+
+border-image: url(:/new/prefix1/icon/calcul.png);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="autoDefault">
+     <bool>true</bool>
+    </property>
+    <property name="default">
+     <bool>true</bool>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_stock">
+    <property name="geometry">
+     <rect>
+      <x>290</x>
+      <y>5</y>
+      <width>61</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">
+border-image: url(:/new/prefix1/icon/stock.png);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="autoDefault">
+     <bool>true</bool>
+    </property>
+    <property name="default">
+     <bool>true</bool>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_activite">
+    <property name="geometry">
+     <rect>
+      <x>11</x>
+      <y>5</y>
+      <width>61</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/new/prefix1/icon/activ.png);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="autoDefault">
+     <bool>true</bool>
+    </property>
+    <property name="default">
+     <bool>true</bool>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_eleves_2">
+    <property name="geometry">
+     <rect>
+      <x>80</x>
+      <y>5</y>
+      <width>61</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/new/prefix1/icon/GestionES.png);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="autoDefault">
+     <bool>true</bool>
+    </property>
+    <property name="default">
+     <bool>true</bool>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_employer">
+    <property name="geometry">
+     <rect>
+      <x>150</x>
+      <y>5</y>
+      <width>61</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">
+border-image: url(:/new/prefix1/icon/perso.png);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="autoDefault">
+     <bool>true</bool>
+    </property>
+    <property name="default">
+     <bool>true</bool>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QStackedWidget" name="stackedWidget_2">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>80</y>
+     <width>871</width>
+     <height>481</height>
+    </rect>
+   </property>
+   <property name="currentIndex">
+    <number>1</number>
+   </property>
+   <widget class="QWidget" name="page_6">
+    <widget class="QTableView" name="tableView_aliment">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>60</y>
+       <width>581</width>
+       <height>341</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QTableView{
+
+border : 1px solid;
+	border-color: rgb(171, 152, 203);
+
+
+;}</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>10</y>
+       <width>351</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 75 19pt &quot;Quicksand&quot;;
+text-decoration: underline;
+font-weight:bold;</string>
+     </property>
+     <property name="text">
+      <string>Gestion Des Aliments</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_2">
+     <property name="geometry">
+      <rect>
+       <x>592</x>
+       <y>30</y>
+       <width>91</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 10pt &quot;Quicksand&quot;;</string>
+     </property>
+     <property name="text">
+      <string>Rechercher :</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="lineEdit_rechercher_aliment">
+     <property name="geometry">
+      <rect>
+       <x>680</x>
+       <y>30</y>
+       <width>181</width>
+       <height>20</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QFrame" name="frame_2">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>410</y>
+       <width>341</width>
+       <height>71</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border-color: rgb(255, 255, 255);
+
+border-radius: 10px;
+background-color: rgb(171, 152, 203);</string>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::Box</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <widget class="QPushButton" name="pushButton_ajouter_aliment">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>5</y>
+        <width>61</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-image: url(:/new/prefix1/icon/plus.png);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="autoDefault">
+       <bool>true</bool>
+      </property>
+      <property name="default">
+       <bool>true</bool>
+      </property>
+      <property name="flat">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_modifier_aliment">
+      <property name="geometry">
+       <rect>
+        <x>73</x>
+        <y>4</y>
+        <width>61</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-image: url(:/new/prefix1/icon/modif.png);
+
+</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="autoDefault">
+       <bool>true</bool>
+      </property>
+      <property name="default">
+       <bool>true</bool>
+      </property>
+      <property name="flat">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_supprimer_aliment">
+      <property name="geometry">
+       <rect>
+        <x>137</x>
+        <y>5</y>
+        <width>61</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">
+border-image: url(:/new/prefix1/icon/suppr.png);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="autoDefault">
+       <bool>true</bool>
+      </property>
+      <property name="default">
+       <bool>true</bool>
+      </property>
+      <property name="flat">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_exporter_aliment">
+      <property name="geometry">
+       <rect>
+        <x>202</x>
+        <y>5</y>
+        <width>61</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">
+border-image: url(:/new/prefix1/icon/exporter.png);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="autoDefault">
+       <bool>true</bool>
+      </property>
+      <property name="default">
+       <bool>true</bool>
+      </property>
+      <property name="flat">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_tri_aliment">
+      <property name="geometry">
+       <rect>
+        <x>270</x>
+        <y>5</y>
+        <width>61</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">
+border-image: url(:/new/prefix1/icon/tri.png);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QStackedWidget" name="stackedWidget_crud_aliment">
+     <property name="geometry">
+      <rect>
+       <x>590</x>
+       <y>60</y>
+       <width>271</width>
+       <height>341</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QStackedWidget{
+
+border : 1px solid;
+	border-color: rgb(171, 152, 203);
+
+
+;}</string>
+     </property>
+     <property name="currentIndex">
+      <number>4</number>
+     </property>
+     <widget class="QWidget" name="page_ajouter">
+      <widget class="QLabel" name="label_3">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>0</y>
+         <width>241</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font: 75 15pt &quot;Quicksand&quot;;
+text-decoration: underline;
+font-weight:bold;</string>
+       </property>
+       <property name="text">
+        <string>Ajouter un aliment</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="lineEdit_id_aliment">
+       <property name="geometry">
+        <rect>
+         <x>100</x>
+         <y>50</y>
+         <width>151</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border-color: rgb(255, 255, 255);
+
+border-radius: 10px;
+background-color: rgb(171, 152, 203);</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="lineEdit_nom_aliment">
+       <property name="geometry">
+        <rect>
+         <x>100</x>
+         <y>90</y>
+         <width>151</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border-color: rgb(255, 255, 255);
+
+border-radius: 10px;
+background-color: rgb(171, 152, 203);</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="lineEdit_type_aliment">
+       <property name="geometry">
+        <rect>
+         <x>99</x>
+         <y>185</y>
+         <width>151</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border-color: rgb(255, 255, 255);
+
+border-radius: 10px;
+background-color: rgb(171, 152, 203);</string>
+       </property>
+      </widget>
+      <widget class="QDateEdit" name="dateEdit_dlc">
+       <property name="geometry">
+        <rect>
+         <x>101</x>
+         <y>137</y>
+         <width>151</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border-color: rgb(255, 255, 255);
+
+border-radius: 10px;
+background-color: rgb(171, 152, 203);</string>
+       </property>
+       <property name="calendarPopup">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_ok_a_a">
+       <property name="geometry">
+        <rect>
+         <x>172</x>
+         <y>290</y>
+         <width>41</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border-image: url(:/new/prefix1/icon/ok.png);</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_annuler_ajouter_aliment">
+       <property name="geometry">
+        <rect>
+         <x>220</x>
+         <y>290</y>
+         <width>41</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border-image: url(:/new/prefix1/icon/annuler.png);</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QSplitter" name="splitter">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>35</y>
+         <width>90</width>
+         <height>271</height>
+        </rect>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <widget class="QLabel" name="label_21">
+        <property name="text">
+         <string>Id</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_16">
+        <property name="text">
+         <string>Nom</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_17">
+        <property name="text">
+         <string>DLC</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_18">
+        <property name="text">
+         <string>type</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_19">
+        <property name="text">
+         <string>Quantité</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_20">
+        <property name="text">
+         <string>prix unitaire</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QDoubleSpinBox" name="doubleSpinBox_prix_unutaire_aliments">
+       <property name="geometry">
+        <rect>
+         <x>100</x>
+         <y>270</y>
+         <width>81</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border-color: rgb(255, 255, 255);
+
+border-radius: 10px;
+background-color: rgb(171, 152, 203);</string>
+       </property>
+       <property name="decimals">
+        <number>3</number>
+       </property>
+       <property name="maximum">
+        <double>1000.990000000000009</double>
+       </property>
+      </widget>
+      <widget class="QSpinBox" name="spinBox_quatite_aliments">
+       <property name="geometry">
+        <rect>
+         <x>100</x>
+         <y>230</y>
+         <width>42</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border-color: rgb(255, 255, 255);
+
+border-radius: 10px;
+background-color: rgb(171, 152, 203);</string>
+       </property>
+       <property name="value">
+        <number>1</number>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="page_modifier">
+      <widget class="QDateEdit" name="dateEdit_dlc_modif_aliment">
+       <property name="geometry">
+        <rect>
+         <x>101</x>
+         <y>137</y>
+         <width>151</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border-color: rgb(255, 255, 255);
+
+border-radius: 10px;
+background-color: rgb(171, 152, 203);</string>
+       </property>
+       <property name="calendarPopup">
+        <bool>true</bool>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="lineEdit_type_modif_aliment">
+       <property name="geometry">
+        <rect>
+         <x>99</x>
+         <y>185</y>
+         <width>151</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border-color: rgb(255, 255, 255);
+
+border-radius: 10px;
+background-color: rgb(171, 152, 203);</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_5">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>0</y>
+         <width>251</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font: 75 15pt &quot;Quicksand&quot;;
+text-decoration: underline;
+font-weight:bold;</string>
+       </property>
+       <property name="text">
+        <string>Modifier un aliment</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="lineEdit_id_modif_aliment">
+       <property name="geometry">
+        <rect>
+         <x>100</x>
+         <y>50</y>
+         <width>151</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border-color: rgb(255, 255, 255);
+
+border-radius: 10px;
+background-color: rgb(171, 152, 203);</string>
+       </property>
+      </widget>
+      <widget class="QSplitter" name="splitter_3">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>35</y>
+         <width>90</width>
+         <height>271</height>
+        </rect>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <widget class="QLabel" name="label_34">
+        <property name="text">
+         <string>Id</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_35">
+        <property name="text">
+         <string>Nom</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_36">
+        <property name="text">
+         <string>DLC</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_37">
+        <property name="text">
+         <string>type</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_38">
+        <property name="text">
+         <string>quantité</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_39">
+        <property name="text">
+         <string>prix unitaire</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QLineEdit" name="lineEdit_nom_modif_aliment">
+       <property name="geometry">
+        <rect>
+         <x>100</x>
+         <y>90</y>
+         <width>151</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border-color: rgb(255, 255, 255);
+
+border-radius: 10px;
+background-color: rgb(171, 152, 203);</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_annuler_modif_aliment">
+       <property name="geometry">
+        <rect>
+         <x>218</x>
+         <y>290</y>
+         <width>41</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border-image: url(:/new/prefix1/icon/annuler.png);</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_ok_m_a">
+       <property name="geometry">
+        <rect>
+         <x>170</x>
+         <y>290</y>
+         <width>41</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border-image: url(:/new/prefix1/icon/ok.png);</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QSpinBox" name="spinBox_quatite_modif_aliments">
+       <property name="geometry">
+        <rect>
+         <x>100</x>
+         <y>230</y>
+         <width>42</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border-color: rgb(255, 255, 255);
+
+border-radius: 10px;
+background-color: rgb(171, 152, 203);</string>
+       </property>
+       <property name="value">
+        <number>1</number>
+       </property>
+      </widget>
+      <widget class="QDoubleSpinBox" name="doubleSpinBox_prix_unutaire_modif_aliments">
+       <property name="geometry">
+        <rect>
+         <x>100</x>
+         <y>270</y>
+         <width>81</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border-color: rgb(255, 255, 255);
+
+border-radius: 10px;
+background-color: rgb(171, 152, 203);</string>
+       </property>
+       <property name="decimals">
+        <number>3</number>
+       </property>
+       <property name="maximum">
+        <double>1000.990000000000009</double>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="page_5">
+      <widget class="QLabel" name="label_6">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>261</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font: 75 15pt &quot;Quicksand&quot;;
+text-decoration: underline;
+font-weight:bold;</string>
+       </property>
+       <property name="text">
+        <string>Supprimer un aliment</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="lineEdit_id_supp_aliment">
+       <property name="geometry">
+        <rect>
+         <x>100</x>
+         <y>50</y>
+         <width>151</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border-color: rgb(255, 255, 255);
+
+border-radius: 10px;
+background-color: rgb(171, 152, 203);</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_7">
+       <property name="geometry">
+        <rect>
+         <x>11</x>
+         <y>54</y>
+         <width>47</width>
+         <height>14</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Id</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_supp_aliment">
+       <property name="geometry">
+        <rect>
+         <x>208</x>
+         <y>80</y>
+         <width>41</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border-image: url(:/new/prefix1/icon/annuler.png);</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_ok_s_a">
+       <property name="geometry">
+        <rect>
+         <x>160</x>
+         <y>80</y>
+         <width>41</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border-image: url(:/new/prefix1/icon/ok.png);</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="page">
+      <widget class="QLabel" name="label_152">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>10</y>
+         <width>261</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font: 75 15pt &quot;Quicksand&quot;;
+text-decoration: underline;
+font-weight:bold;</string>
+       </property>
+       <property name="text">
+        <string>exporter les aliments</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_pdf_aliment">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>70</y>
+         <width>61</width>
+         <height>71</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">
+border-image: url(:/new/prefix1/icon/pdf.png);</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_print_aliment">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>170</y>
+         <width>81</width>
+         <height>71</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">
+border-image: url(:/new/prefix1/icon/print.png);</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="page_2">
+      <widget class="QLabel" name="label_153">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>20</y>
+         <width>261</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font: 75 15pt &quot;Quicksand&quot;;
+text-decoration: underline;
+font-weight:bold;</string>
+       </property>
+       <property name="text">
+        <string>trier les aliments</string>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="comboBox_tri_aliment">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>80</y>
+         <width>121</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border-color: rgb(255, 255, 255);
+
+border-radius: 10px;
+background-color: rgb(171, 152, 203);</string>
+       </property>
+       <item>
+        <property name="text">
+         <string>ID_ALIMENT</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>NOM_PRODUIT</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>TYPE</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>DLC</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>PRIX_UNITAIRE</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>PRIX_TOTALE</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>QUANTITE</string>
+        </property>
+       </item>
+      </widget>
+      <widget class="QPushButton" name="pushButton_ok_tri_aliment">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>170</y>
+         <width>93</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border-color: rgb(255, 255, 255);
+
+border-radius: 10px;
+background-color: rgb(171, 152, 203);</string>
+       </property>
+       <property name="text">
+        <string>Trier</string>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="checkBox_tri_aliment">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>130</y>
+         <width>81</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border-color: rgb(255, 255, 255);
+
+border-radius: 10px;
+background-color: rgb(171, 152, 203);</string>
+       </property>
+       <property name="text">
+        <string>ASC</string>
+       </property>
+      </widget>
+     </widget>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="page_7">
+    <widget class="QTableView" name="tableView_equipement">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>60</y>
+       <width>581</width>
+       <height>341</height>
+      </rect>
+     </property>
+     <property name="cursor" stdset="0">
+      <cursorShape>OpenHandCursor</cursorShape>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_8">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>10</y>
+       <width>421</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 75 19pt &quot;Quicksand&quot;;
+text-decoration: underline;
+font-weight:bold;</string>
+     </property>
+     <property name="text">
+      <string>Gestion Des équipements</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_9">
+     <property name="geometry">
+      <rect>
+       <x>592</x>
+       <y>30</y>
+       <width>91</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 10pt &quot;Quicksand&quot;;</string>
+     </property>
+     <property name="text">
+      <string>Rechercher :</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="lineEdit_recherche_equip">
+     <property name="geometry">
+      <rect>
+       <x>680</x>
+       <y>30</y>
+       <width>181</width>
+       <height>20</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QFrame" name="frame_3">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>410</y>
+       <width>341</width>
+       <height>71</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border-color: rgb(255, 255, 255);
+
+border-radius: 10px;
+background-color: rgb(171, 152, 203);</string>
+     </property>
+     <property name="frameShape">
+      <enum>QFrame::Box</enum>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Raised</enum>
+     </property>
+     <widget class="QPushButton" name="pushButton_ajouter_equipement">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>5</y>
+        <width>61</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-image: url(:/new/prefix1/icon/plus.png);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="autoDefault">
+       <bool>true</bool>
+      </property>
+      <property name="default">
+       <bool>true</bool>
+      </property>
+      <property name="flat">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_modifier_equip">
+      <property name="geometry">
+       <rect>
+        <x>73</x>
+        <y>4</y>
+        <width>61</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-image: url(:/new/prefix1/icon/modif.png);
+
+</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="autoDefault">
+       <bool>true</bool>
+      </property>
+      <property name="default">
+       <bool>true</bool>
+      </property>
+      <property name="flat">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_supp_equip">
+      <property name="geometry">
+       <rect>
+        <x>137</x>
+        <y>5</y>
+        <width>61</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">
+border-image: url(:/new/prefix1/icon/suppr.png);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="autoDefault">
+       <bool>true</bool>
+      </property>
+      <property name="default">
+       <bool>true</bool>
+      </property>
+      <property name="flat">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_exporter_equip">
+      <property name="geometry">
+       <rect>
+        <x>202</x>
+        <y>5</y>
+        <width>61</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">
+border-image: url(:/new/prefix1/icon/exporter.png);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="autoDefault">
+       <bool>true</bool>
+      </property>
+      <property name="default">
+       <bool>true</bool>
+      </property>
+      <property name="flat">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_tri_equipement">
+      <property name="geometry">
+       <rect>
+        <x>267</x>
+        <y>5</y>
+        <width>61</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">
+border-image: url(:/new/prefix1/icon/tri.png);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QStackedWidget" name="stackedWidget_crud_equipement">
+     <property name="geometry">
+      <rect>
+       <x>590</x>
+       <y>60</y>
+       <width>271</width>
+       <height>341</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">QStackedWidget{
+
+border : 1px solid;
+	border-color: rgb(171, 152, 203);
+
+
+;}</string>
+     </property>
+     <property name="currentIndex">
+      <number>3</number>
+     </property>
+     <widget class="QWidget" name="page_8">
+      <widget class="QLabel" name="label_10">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>271</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Quicksand</family>
+         <pointsize>13</pointsize>
+         <weight>75</weight>
+         <italic>false</italic>
+         <bold>true</bold>
+         <underline>true</underline>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font: 75 13pt &quot;Quicksand&quot;;
+text-decoration: underline;
+font-weight:bold;</string>
+       </property>
+       <property name="text">
+        <string>Ajouter un équipement</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="lineEdit_id_equipement">
+       <property name="geometry">
+        <rect>
+         <x>100</x>
+         <y>40</y>
+         <width>151</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border-color: rgb(255, 255, 255);
+
+border-radius: 10px;
+background-color: rgb(171, 152, 203);</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="lineEdit_nom_equipement">
+       <property name="geometry">
+        <rect>
+         <x>100</x>
+         <y>90</y>
+         <width>151</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border-color: rgb(255, 255, 255);
+
+border-radius: 10px;
+background-color: rgb(171, 152, 203);</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_a_e">
+       <property name="geometry">
+        <rect>
+         <x>172</x>
+         <y>290</y>
+         <width>41</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border-image: url(:/new/prefix1/icon/ok.png);</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_8">
+       <property name="geometry">
+        <rect>
+         <x>220</x>
+         <y>290</y>
+         <width>41</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border-image: url(:/new/prefix1/icon/annuler.png);</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="lineEdit_salle_affecter">
+       <property name="geometry">
+        <rect>
+         <x>100</x>
+         <y>130</y>
+         <width>151</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border-color: rgb(255, 255, 255);
+
+border-radius: 10px;
+background-color: rgb(171, 152, 203);</string>
+       </property>
+      </widget>
+      <widget class="QSplitter" name="splitter_4">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>30</y>
+         <width>90</width>
+         <height>271</height>
+        </rect>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <widget class="QLabel" name="label_29">
+        <property name="text">
+         <string>Id</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_30">
+        <property name="text">
+         <string>Nom</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_31">
+        <property name="text">
+         <string>Salle affecter</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_32">
+        <property name="text">
+         <string>type</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_33">
+        <property name="text">
+         <string>Quantité</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_40">
+        <property name="text">
+         <string>prix unitaire</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QLineEdit" name="lineEdit_type_equipement">
+       <property name="geometry">
+        <rect>
+         <x>100</x>
+         <y>170</y>
+         <width>151</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border-color: rgb(255, 255, 255);
+
+border-radius: 10px;
+background-color: rgb(171, 152, 203);</string>
+       </property>
+      </widget>
+      <widget class="QSpinBox" name="spinBox_quatite_equipement">
+       <property name="geometry">
+        <rect>
+         <x>100</x>
+         <y>220</y>
+         <width>42</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border-color: rgb(255, 255, 255);
+
+border-radius: 10px;
+background-color: rgb(171, 152, 203);</string>
+       </property>
+       <property name="value">
+        <number>1</number>
+       </property>
+      </widget>
+      <widget class="QDoubleSpinBox" name="doubleSpinBox_prix_unutaire_equipement">
+       <property name="geometry">
+        <rect>
+         <x>100</x>
+         <y>270</y>
+         <width>81</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border-color: rgb(255, 255, 255);
+
+border-radius: 10px;
+background-color: rgb(171, 152, 203);</string>
+       </property>
+       <property name="decimals">
+        <number>3</number>
+       </property>
+       <property name="maximum">
+        <double>1000.990000000000009</double>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="page_9">
+      <widget class="QLabel" name="label_11">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>271</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font: 75 13pt &quot;Quicksand&quot;;
+text-decoration: underline;
+font-weight:bold;</string>
+       </property>
+       <property name="text">
+        <string>Modifier un équipement</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="lineEdit_nom_modif_equip">
+       <property name="geometry">
+        <rect>
+         <x>100</x>
+         <y>90</y>
+         <width>151</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border-color: rgb(255, 255, 255);
+
+border-radius: 10px;
+background-color: rgb(171, 152, 203);</string>
+       </property>
+      </widget>
+      <widget class="QSplitter" name="splitter_5">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>30</y>
+         <width>90</width>
+         <height>271</height>
+        </rect>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <widget class="QLabel" name="label_43">
+        <property name="text">
+         <string>Id</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_44">
+        <property name="text">
+         <string>Nom</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_45">
+        <property name="text">
+         <string>Salle affecter</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_149">
+        <property name="text">
+         <string>type</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_150">
+        <property name="text">
+         <string>Quantité</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_151">
+        <property name="text">
+         <string>prix unitaire</string>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QDoubleSpinBox" name="doubleSpinBox_prix_unutaire_modif_equip">
+       <property name="geometry">
+        <rect>
+         <x>100</x>
+         <y>270</y>
+         <width>81</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border-color: rgb(255, 255, 255);
+
+border-radius: 10px;
+background-color: rgb(171, 152, 203);</string>
+       </property>
+       <property name="decimals">
+        <number>3</number>
+       </property>
+       <property name="maximum">
+        <double>1000.990000000000009</double>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="lineEdit_salle_modif_equip">
+       <property name="geometry">
+        <rect>
+         <x>100</x>
+         <y>130</y>
+         <width>151</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border-color: rgb(255, 255, 255);
+
+border-radius: 10px;
+background-color: rgb(171, 152, 203);</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="lineEdit_id_modif_equip">
+       <property name="geometry">
+        <rect>
+         <x>100</x>
+         <y>40</y>
+         <width>151</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border-color: rgb(255, 255, 255);
+
+border-radius: 10px;
+background-color: rgb(171, 152, 203);</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="lineEdit_type_modif_equip">
+       <property name="geometry">
+        <rect>
+         <x>100</x>
+         <y>170</y>
+         <width>151</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border-color: rgb(255, 255, 255);
+
+border-radius: 10px;
+background-color: rgb(171, 152, 203);</string>
+       </property>
+      </widget>
+      <widget class="QSpinBox" name="spinBox_quatite_modif_equip">
+       <property name="geometry">
+        <rect>
+         <x>100</x>
+         <y>220</y>
+         <width>42</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border-color: rgb(255, 255, 255);
+
+border-radius: 10px;
+background-color: rgb(171, 152, 203);</string>
+       </property>
+       <property name="value">
+        <number>1</number>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_ok_m_e">
+       <property name="geometry">
+        <rect>
+         <x>172</x>
+         <y>290</y>
+         <width>41</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border-image: url(:/new/prefix1/icon/ok.png);</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_10">
+       <property name="geometry">
+        <rect>
+         <x>220</x>
+         <y>290</y>
+         <width>41</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border-image: url(:/new/prefix1/icon/annuler.png);</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="page_10">
+      <widget class="QLabel" name="label_12">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>10</y>
+         <width>271</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font: 75 13pt &quot;Quicksand&quot;;
+text-decoration: underline;
+font-weight:bold;</string>
+       </property>
+       <property name="text">
+        <string>Supprimer un équipement</string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="lineEdit_id_supp_equip">
+       <property name="geometry">
+        <rect>
+         <x>100</x>
+         <y>50</y>
+         <width>151</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border-color: rgb(255, 255, 255);
+
+border-radius: 10px;
+background-color: rgb(171, 152, 203);</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_13">
+       <property name="geometry">
+        <rect>
+         <x>11</x>
+         <y>54</y>
+         <width>47</width>
+         <height>14</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>id</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_11">
+       <property name="geometry">
+        <rect>
+         <x>208</x>
+         <y>290</y>
+         <width>41</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border-image: url(:/new/prefix1/icon/annuler.png);</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_s_e">
+       <property name="geometry">
+        <rect>
+         <x>160</x>
+         <y>290</y>
+         <width>41</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border-image: url(:/new/prefix1/icon/ok.png);</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="page_3">
+      <widget class="QLabel" name="label_154">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>20</y>
+         <width>261</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font: 75 13pt &quot;Quicksand&quot;;
+text-decoration: underline;
+font-weight:bold;</string>
+       </property>
+       <property name="text">
+        <string>exporter les équipements</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_pdf_equipement">
+       <property name="geometry">
+        <rect>
+         <x>40</x>
+         <y>80</y>
+         <width>61</width>
+         <height>71</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">
+border-image: url(:/new/prefix1/icon/pdf.png);</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_print_equipement">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>180</y>
+         <width>81</width>
+         <height>71</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">
+border-image: url(:/new/prefix1/icon/print.png);</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="page_4">
+      <widget class="QPushButton" name="pushButton_ok_tri_equipement">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>190</y>
+         <width>93</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border-color: rgb(255, 255, 255);
+
+border-radius: 10px;
+background-color: rgb(171, 152, 203);</string>
+       </property>
+       <property name="text">
+        <string>Trier</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_155">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>30</y>
+         <width>261</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font: 75 15pt &quot;Quicksand&quot;;
+text-decoration: underline;
+font-weight:bold;</string>
+       </property>
+       <property name="text">
+        <string>trier les equipements</string>
+       </property>
+      </widget>
+      <widget class="QCheckBox" name="checkBox_tri_equipement">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>150</y>
+         <width>81</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border-color: rgb(255, 255, 255);
+
+border-radius: 10px;
+background-color: rgb(171, 152, 203);</string>
+       </property>
+       <property name="text">
+        <string>ASC</string>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="comboBox_tri_equipement">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>100</y>
+         <width>121</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border-color: rgb(255, 255, 255);
+
+border-radius: 10px;
+background-color: rgb(171, 152, 203);</string>
+       </property>
+       <item>
+        <property name="text">
+         <string>ID_EQUIPEMENT</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>NOM_PRODUIT</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>TYPE</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>SALLE AFFECTER</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>PRIX_UNITAIRE</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>PRIX_TOTALE</string>
+        </property>
+       </item>
+       <item>
+        <property name="text">
+         <string>QUANTITE</string>
+        </property>
+       </item>
+      </widget>
+     </widget>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QFrame" name="frame_4">
+   <property name="geometry">
+    <rect>
+     <x>360</x>
+     <y>5</y>
+     <width>151</width>
+     <height>61</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border-color: rgb(255, 255, 255);
+background-color: rgb(171, 152, 203);
+border-radius: 10px;</string>
+   </property>
+   <property name="frameShape">
+    <enum>QFrame::Box</enum>
+   </property>
+   <property name="frameShadow">
+    <enum>QFrame::Raised</enum>
+   </property>
+   <widget class="QPushButton" name="pushButton_equipement">
+    <property name="geometry">
+     <rect>
+      <x>83</x>
+      <y>5</y>
+      <width>51</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/new/prefix1/icon/equip.png);
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="autoDefault">
+     <bool>true</bool>
+    </property>
+    <property name="default">
+     <bool>true</bool>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_aliment">
+    <property name="geometry">
+     <rect>
+      <x>18</x>
+      <y>5</y>
+      <width>51</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/new/prefix1/icon/aliment.png);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="autoDefault">
+     <bool>true</bool>
+    </property>
+    <property name="default">
+     <bool>true</bool>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

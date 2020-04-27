@@ -1,0 +1,29 @@
+<RCC>
+    <qresource prefix="/new/prefix1">
+        <file>icon/activ.png</file>
+        <file>icon/annuler.png</file>
+        <file>icon/calcul.png</file>
+        <file>icon/eleves.png</file>
+        <file>icon/exporter.png</file>
+        <file>icon/logo.webp</file>
+        <file>icon/modif.png</file>
+        <file>icon/ok.png</file>
+        <file>icon/perso.png</file>
+        <file>icon/plus.png</file>
+        <file>icon/salles.png</file>
+        <file>icon/stock.png</file>
+        <file>icon/suppr.png</file>
+        <file>icon/GestionES.png</file>
+        <file>icon/aliment.png</file>
+        <file>icon/equip.png</file>
+        <file>icon/pdf.png</file>
+        <file>icon/print.png</file>
+        <file>icon/tri.png</file>
+        <file>icon/Fichier 1.png</file>
+        <file>icon/bus.png</file>
+    </qresource>
+    <qresource prefix="/">
+        <file>icon/bus.png</file>
+        <file>icon/Fichier 1.png</file>
+    </qresource>
+</RCC>
