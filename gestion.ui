@@ -1435,7 +1435,7 @@ background-color: rgb(171, 152, 203);</string>
     <rect>
      <x>342</x>
      <y>15</y>
-     <width>151</width>
+     <width>141</width>
      <height>61</height>
     </rect>
    </property>
@@ -1502,10 +1502,24 @@ border-image: url(:/new/prefix1/icon/salles.png);</string>
     </property>
    </widget>
   </widget>
+  <widget class="QPushButton" name="pushButton">
+   <property name="geometry">
+    <rect>
+     <x>580</x>
+     <y>40</y>
+     <width>75</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>PushButton</string>
+   </property>
+  </widget>
   <zorder>stackedWidget_2</zorder>
   <zorder>frame</zorder>
   <zorder>pushButton_home_2</zorder>
   <zorder>frame_4</zorder>
+  <zorder>pushButton</zorder>
  </widget>
  <resources/>
  <connections/>

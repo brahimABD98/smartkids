@@ -94,7 +94,7 @@ private slots:
 
     void on_pushButton_employer_clicked();
 
-    void on_pushButton_stock_clicked();
+
 
     void on_pushButton_comp_clicked();
 

@@ -80,7 +80,7 @@ private slots:
 
     void on_pushButton_16_clicked();
 
-    void on_pushButton_eleves_2_clicked();
+
 
     void on_pushButton_17_clicked();
 
