@@ -11,6 +11,7 @@
 #include "gestion.h"
 #include "stock.h"
 #include "charrad/gestiono9.h"
+#include "bibliotheque.h"
 
 gestion_activite::gestion_activite(QWidget *parent) :
     QDialog(parent),
@@ -19,6 +20,7 @@ gestion_activite::gestion_activite(QWidget *parent) :
     ui->setupUi(this);
     ui->table_club->setModel(tmpclub.afficher_club());
     ui->table_excursion->setModel(tmpexcursion.afficher_excursion());
+    ui->table_livre->setModel(tmplivre.afficher_livre());
     ui->dateEdit_excu_ajout->setDate(QDate::currentDate());
 }
 
@@ -435,4 +437,63 @@ void gestion_activite::on_pushButton_17_clicked()
     hide();
     gestiono9 G;
     G.exec();
+}
+
+
+
+void gestion_activite::on_table_club_doubleClicked(const QModelIndex &index)
+{
+    if ((index.isValid()) && (index.column() == 4)  ) {
+
+        QString type;
+        QString nbr;
+        int id = index.data().toInt();
+        QSqlQuery query=tmpsalles.rechercher_num(id);
+        if (query.next()) {
+        type= query.value(1).toString();
+        nbr= query.value(2).toString();
+        }
+
+
+        QMessageBox::information(nullptr, QObject::tr("Salle"),
+                          QObject::tr(" Type : %1 \n Nbr de places: %2 ") .arg(type).arg(nbr), QMessageBox::Cancel);
+
+    }
+}
+
+void gestion_activite::on_pushButton_eleves_4_clicked()
+{
+    ui->stackedWidget_2->setCurrentIndex(2);
+}
+
+void gestion_activite::on_pushButton_27_clicked()
+{
+    ui->stackedWidget_4->setCurrentIndex(0);
+}
+
+void gestion_activite::on_pushButton_29_clicked()
+{
+    ui->stackedWidget_4->setCurrentIndex(1);
+}
+
+void gestion_activite::on_pushButton_30_clicked()
+{
+    ui->stackedWidget_4->setCurrentIndex(2);
+}
+
+void gestion_activite::on_pushButton_ajout_livre_clicked()
+{
+    int id = ui->lineEdit_ajout_id_livre->text().toInt();
+    QString nom= ui->lineEdit_ajout_nom_livre->text();
+    QString auteur= ui->lineEdit_ajout_auteur_livre->text();
+    QString langue= ui->comboBox_langue_livre->currentText();
+    int eleve = ui->comboBox_eleve_livre->currentText().toInt();
+  Bibliotheque b(id,nom,auteur,langue,eleve);
+  bool test=b.ajouter_livre();
+  if(test)
+{ui->table_livre->setModel(tmplivre.afficher_livre());//refresh
+QMessageBox::information(nullptr, QObject::tr("Ajouter un livre"),
+                  QObject::tr("Livre ajouté.\n"
+                              "Click Cancel to exit."), QMessageBox::Cancel);
+}
 }
