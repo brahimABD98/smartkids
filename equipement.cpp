@@ -121,3 +121,13 @@ model->setHeaderData(0, Qt::Horizontal, QObject::tr("ID"));
     return model;
 }
 
+QSqlQuery equipement::rechercher_salle(int salle)
+{
+
+    QSqlQuery query;
+    query.prepare("SELECT * from equipement where SALLE_AFFECTER = :salle");
+    query.bindValue(":salle", salle);
+    query.exec();
+
+    return query;
+}

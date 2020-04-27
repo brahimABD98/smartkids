@@ -778,3 +778,39 @@ void Gestion::on_pushButton_stock_clicked()
     stock se;
     se.exec();
 }
+void Gestion::on_tableView_S_doubleClicked(const QModelIndex &index)
+{
+    if ((index.isValid()) && (index.column() == 0)  ) {
+
+                int i=0;
+
+                QString npr;
+                QString qu;
+                QString aux;
+                int id = index.data().toInt();
+                int rows = 0;
+                QSqlQuery query("SELECT COUNT(*) FROM equipement ");
+                if (query.next()) {
+                    rows = query.value(0).toInt();
+                }
+
+
+
+                do{
+
+                 QSqlQuery query=tmpequipement.rechercher_salle(id);
+                if (query.seek(i)) {
+                 npr= query.value(1).toString();
+                 qu= query.value(2).toString();
+                }
+                aux=aux+qu+":"+npr+"\n";
+                i++;
+
+
+                }while(i<rows);
+
+                QMessageBox::information(nullptr, QObject::tr("Salle"),
+                                  QObject::tr("La salle est equipe de :\n%1") .arg(aux), QMessageBox::Cancel);
+
+            }
+}

@@ -3,6 +3,7 @@
 #include "eleves.h"
 #include "salles.h"
 #include "bus.h"
+#include "equipement.h"
 #include <QDialog>
 
 namespace Ui {
@@ -110,7 +111,7 @@ private slots:
 
         void on_pushButton_resetTs_clicked();
 
-
+        void on_tableView_S_doubleClicked(const QModelIndex &index);
 
 
 
@@ -122,6 +123,7 @@ private:
     eleves tmpeleve;
     salles tmpsalle;
     bus tmpbus;
+    equipement tmpequipement;
 };
 
 #endif // GESTION_H
