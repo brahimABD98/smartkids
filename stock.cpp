@@ -742,3 +742,13 @@ void stock::on_pushButton_comp_clicked()
     gestiono9 G;
     G.exec();
 }
+
+void stock::on_pushButton_equipement_2_clicked()
+{
+
+}
+
+void stock::on_pushButton_reclamation_clicked()
+{
+    ui->stackedWidget_2->setCurrentIndex(2);
+}

@@ -98,6 +98,10 @@ private slots:
 
     void on_pushButton_comp_clicked();
 
+    void on_pushButton_equipement_2_clicked();
+
+    void on_pushButton_reclamation_clicked();
+
 private:
     Ui::stock *ui;
     aliments tmpaliment;
