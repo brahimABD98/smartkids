@@ -188,9 +188,6 @@ border-image: url(:/new/prefix1/icon/stock.png);</string>
        <height>341</height>
       </rect>
      </property>
-     <attribute name="horizontalHeaderVisible">
-      <bool>false</bool>
-     </attribute>
      <attribute name="horizontalHeaderCascadingSectionResizes">
       <bool>true</bool>
      </attribute>
@@ -1620,7 +1617,7 @@ border : 1px solid;
 ;}</string>
      </property>
      <property name="currentIndex">
-      <number>0</number>
+      <number>2</number>
      </property>
      <widget class="QWidget" name="page_14">
       <widget class="QLabel" name="label_25">
@@ -2030,7 +2027,7 @@ background-color: rgb(171, 152, 203);</string>
        </item>
        <item>
         <property name="text">
-         <string>Français</string>
+         <string>Francais</string>
         </property>
        </item>
        <item>
@@ -2357,7 +2354,7 @@ border-image: url(:/new/prefix1/icon/Fichier 1.png);</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-image: url(:/new/prefix1/icon/bus.png);</string>
+     <string notr="true">border-image: url(:/new/prefix1/icon/biblio.png);</string>
     </property>
     <property name="text">
      <string/>

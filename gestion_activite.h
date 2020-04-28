@@ -81,6 +81,12 @@ private slots:
 
     void on_pushButton_ajout_livre_clicked();
 
+    void on_lineEdit_modif_id_livre_textChanged();
+
+    void on_pushButton_modif_livre_clicked();
+
+    void on_pushButton_supp_livre_clicked();
+
 private:
     Ui::gestion_activite *ui;
     Excursion tmpexcursion;

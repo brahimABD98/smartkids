@@ -1,4 +1,5 @@
 #include "bibliotheque.h"
+#include "eleves.h"
 
 Bibliotheque::Bibliotheque()
 {
@@ -68,7 +69,7 @@ bool Bibliotheque::modifier_livre(int id,QString nom,QString auteur,QString lang
 {
 
     QSqlQuery qry;
-        qry.prepare("UPDATE club set NOM=(?),RESPONSABLE=(?),JOUR=(?),SALLE=(?) where ID=(?) ");
+        qry.prepare("UPDATE bibliotheque set NOM=(?),AUTEUR=(?),LANGUE=(?),ELEVE=(?) where ID=(?) ");
 
 
         qry.addBindValue(nom);
@@ -104,5 +105,12 @@ QSqlQueryModel * Bibliotheque::rechercher_livre (const QString &aux)
     model->setHeaderData(3, Qt::Horizontal, QObject::tr("Langue"));
     model->setHeaderData(4, Qt::Horizontal, QObject::tr("Eleve"));
 
+    return model;
+}
+
+QSqlQueryModel * Bibliotheque::afficher_eleve(){
+    QSqlQueryModel * model= new QSqlQueryModel();
+    model->setQuery("select ID from eleves");
+    model->setHeaderData(0, Qt::Horizontal, QObject::tr("eleve"));
     return model;
 }

@@ -22,6 +22,8 @@ gestion_activite::gestion_activite(QWidget *parent) :
     ui->table_excursion->setModel(tmpexcursion.afficher_excursion());
     ui->table_livre->setModel(tmplivre.afficher_livre());
     ui->dateEdit_excu_ajout->setDate(QDate::currentDate());
+    ui->comboBox_eleve_livre->setModel(tmplivre.afficher_eleve());
+    ui->comboBox_modif_eleve_livre->setModel(tmplivre.afficher_eleve());
 }
 
 gestion_activite::~gestion_activite()
@@ -496,4 +498,93 @@ QMessageBox::information(nullptr, QObject::tr("Ajouter un livre"),
                   QObject::tr("Livre ajouté.\n"
                               "Click Cancel to exit."), QMessageBox::Cancel);
 }
+}
+
+void gestion_activite::on_lineEdit_modif_id_livre_textChanged()
+{
+    int id=ui->lineEdit_modif_id_livre->text().toInt();
+
+
+    QSqlQuery query=tmplivre.rechercher_id_livre(id);
+    QString nom_l,auteur_l,langue_l;
+    QString eleve_l;
+
+
+         if (query.next())
+        {
+
+        nom_l= query.value(1).toString();
+        ui->lineEdit_modif_nom_livre->setText(nom_l);
+        auteur_l= query.value(2).toString();
+        ui->lineEdit_modif_auteur_livre->setText(auteur_l);
+        langue_l= query.value(3).toString();
+        ui->comboBox_modif_langue_livre->setCurrentText(langue_l);
+        eleve_l= query.value(4).toString();
+        ui->comboBox_modif_eleve_livre->setCurrentText(eleve_l);
+
+
+        }
+}
+
+void gestion_activite::on_pushButton_modif_livre_clicked()
+{
+    QString nom= ui->lineEdit_modif_nom_livre->text();
+    QString auteur= ui->lineEdit_modif_auteur_livre->text();
+    QString langue= ui->comboBox_modif_langue_livre->currentText();
+    int eleve = ui->comboBox_modif_eleve_livre->currentText().toInt();
+
+    bool test =tmplivre.modifier_livre(ui->lineEdit_modif_id_livre->text().toInt(),ui->lineEdit_modif_nom_livre->text()
+                ,auteur,langue,eleve);
+
+      if(test)
+      {
+          ui->table_livre->setModel(tmplivre.afficher_livre());//refresh
+          QMessageBox::information(nullptr, QObject::tr("Modifier un livre"),
+                            QObject::tr("Livre modifié.\n"
+                                        "Click Cancel to exit."), QMessageBox::Cancel);
+
+      }
+        else
+            QMessageBox::critical(nullptr, QObject::tr("Modifier un livre"),
+                        QObject::tr("Erreur !.\n"
+                           "Click Cancel to exit."), QMessageBox::Cancel);
+}
+
+void gestion_activite::on_pushButton_supp_livre_clicked()
+{
+    int id = ui->lineEdit_supp_livre->text().toInt();
+    QSqlQuery query=tmplivre.rechercher_id_livre(id);
+    QString nom_l,auteur_l,langue_l;
+    QString eleve_l;
+
+    if (query.next())
+   {
+    nom_l= query.value(1).toString();
+    auteur_l= query.value(2).toString();
+    langue_l= query.value(3).toString();
+    eleve_l= query.value(4).toString();
+   }
+
+    int reponse = QMessageBox::question(this, "Interrogatoire", "Voulez-vous supprimer le club :\n nom : " +nom_l+ "\n auteur : " +auteur_l+ "\n langue : " +langue_l+ "\n eleve : " +eleve_l , QMessageBox ::Yes | QMessageBox::No);
+
+    if (reponse == QMessageBox::Yes)
+    {
+        bool test=tmplivre.supprimer_livre(id);
+        if(test)
+        {ui->table_livre->setModel(tmplivre.afficher_livre());//refresh
+            QMessageBox::information(nullptr, QObject::tr("Supprimer un livre"),
+                        QObject::tr("Livre supprimé.\n"
+                                    "Click Cancel to exit."), QMessageBox::Cancel);
+
+        }
+        else
+            QMessageBox::critical(nullptr, QObject::tr("Supprimer un livre"),
+                        QObject::tr("Erreur !.\n"
+                                    "Click Cancel to exit."), QMessageBox::Cancel);
+         ui->lineEdit_supp_livre->clear() ;
+    }
+    else if (reponse == QMessageBox::No)
+    {
+        ui->lineEdit_supp_livre->clear() ;
+    }
 }
