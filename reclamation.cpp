@@ -20,13 +20,15 @@ bool reclamation  :: modifier_reclamation(   int id_reclamation ,QString nom,QDa
 {
 
     QSqlQuery qry;
-        qry.prepare("UPDATE reclamation set NOM=(?),DATER=(?),MAIL=(?),MESSAGE=(?) where ID_reclamation=(?) ");
+        qry.prepare("UPDATE reclamation set NOM=(?),DATER=(?),MAIL=(?),MESSAGE=(?) where ID_RECLAMATION=(?) ");
 
 
         qry.addBindValue(nom);
         qry.addBindValue(dater);
         qry.addBindValue(mail);
         qry.addBindValue(message);
+        qDebug()<<dater;
+
          qry.addBindValue(id_reclamation);
    return  qry.exec();
 }
@@ -51,11 +53,10 @@ query.prepare("INSERT INTO reclamation (ID_RECLAMATION, NOM,DATER,MAIL,MESSAGE)"
 
 
 query.bindValue(":id_reclamation", res);
-query.bindValue(":nom_produit", nom);
+query.bindValue(":nom", nom);
 query.bindValue(":dater", dater);
 query.bindValue(":mail", mail);
 query.bindValue(":message", message);
-qDebug()<<dater;
 return    query.exec();
 }
 QSqlQueryModel * reclamation ::afficher()
@@ -99,7 +100,19 @@ QSqlQueryModel * reclamation ::recherche (const QString &aux)
     return model;
 }
 
+QSqlQueryModel *  reclamation::trier(const QString &critere, const QString &mode )
+{
+    QSqlQueryModel * model= new QSqlQueryModel();
 
+model->setQuery("select * from reclamation order by "+critere+" "+mode+"");
+
+model->setHeaderData(0, Qt::Horizontal, QObject::tr("ID reclamation"));
+  model->setHeaderData(1, Qt::Horizontal, QObject::tr("Nom "));
+  model->setHeaderData(2, Qt::Horizontal, QObject::tr("date reclamation"));
+  model->setHeaderData(3, Qt::Horizontal, QObject::tr("mail"));
+  model->setHeaderData(4, Qt::Horizontal, QObject::tr("message"));
+    return model;
+}
 QSqlQuery reclamation::rechercher_salle(int salle)
 {
 

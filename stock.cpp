@@ -822,3 +822,235 @@ void stock::on_pushButton_ok_a_r_clicked()
 
           }
 }
+
+void stock::on_lineEdit_id_mr_textChanged()
+{
+    int id=ui->lineEdit_id_mr->text().toInt();
+    QSqlQuery query=tmpreclamation.rechercher_id(id);
+    QString nom;
+
+    QDate dater ;
+    QString mail;
+    QString message;
+  //  double prix_total;
+
+    if (query.next())
+            {
+            nom= query.value(1).toString();
+            ui->lineEdit_nom_mr->setText(nom);
+
+            dater = query.value(2).toDate();
+            ui->dateEdit_mr->setDate(dater);
+
+
+            mail= query.value(3).toString();
+            ui->lineEdit_mail_mr->setText(mail);
+
+            message= query.value(4).toString();
+            ui->textEdit_msg_mr->setText(message);
+
+            }
+            else
+               {
+        ui->lineEdit_nom_mr->clear();
+        ui->dateEdit_mr->clear();
+        ui->lineEdit_mail_mr->clear();
+        ui->textEdit_msg_mr->clear();
+    }
+
+
+}
+
+void stock::on_pushButton_ok_mr_clicked()
+{
+           int id=   ui->lineEdit_id_mr->text().toInt();
+           QString nom= ui->lineEdit_nom_mr->text();
+           QString mail= ui->lineEdit_mail_mr->text();
+           QDate dater =ui->dateEdit_mr->date();
+           QString message=ui->textEdit_msg_mr->toPlainText();
+
+
+    bool test =tmpreclamation.modifier_reclamation(id,nom,dater,mail,message);
+
+         if(test)
+         {
+               ui->tab_reclamation->setModel(tmpreclamation.afficher());//refresh
+         QMessageBox::information(nullptr, QObject::tr("modifier une réclamation"),
+                           QObject::tr("réclamation modifié.\n"
+                                       "Click Cancel to exit."), QMessageBox::Cancel);
+
+         }
+           else
+               QMessageBox::critical(nullptr, QObject::tr("modifier une réclamation"),
+                           QObject::tr("Erreur !.\n"
+                              "Click Cancel to exit."), QMessageBox::Cancel);
+}
+
+void stock::on_lineEdit_id_supp_rec_textChanged()
+{
+    QString id=ui->lineEdit_id_supp_rec->text();
+    if(ui->lineEdit_id_supp_rec->text() == "")
+            {
+                ui->tab_reclamation->setModel(tmpreclamation.afficher());
+            }
+            else
+            {
+                 ui->tab_reclamation->setModel(tmpreclamation.recherche(id));
+            }
+}
+
+
+void stock::on_pushButton_s_r_clicked()
+{
+    int id =ui->lineEdit_id_supp_rec->text().toInt();
+    QSqlQuery query=tmpreclamation.rechercher_id(id);
+    QString nom ;
+           if (query.next())
+            {
+            nom= query.value(1).toString();
+            QMessageBox msgBox;
+            msgBox.setWindowTitle("Confirmation");
+            msgBox.setText("voulez-vous vraiment supprimer la reclamation ?");
+            msgBox.setInformativeText(QString("%1 : %2").arg(id).arg(nom));
+            msgBox.setStandardButtons(QMessageBox::Yes);
+            msgBox.addButton(QMessageBox::No);
+            msgBox.setDefaultButton(QMessageBox::No);
+            if(msgBox.exec() == QMessageBox::Yes){
+        bool test =tmpreclamation.supprimer(id);
+            if(test)
+            {ui->tab_reclamation->setModel(tmpreclamation.afficher());//refresh
+                QMessageBox::information(nullptr, QObject::tr("Supprimer réclamation"),
+                            QObject::tr("reclamation supprimé.\n"
+                                        "Click Cancel to exit."), QMessageBox::Cancel);
+                ui->lineEdit_id_supp_rec->clear();
+            }
+            else
+                QMessageBox::critical(nullptr, QObject::tr("supprimer reclamation"),QObject::tr("Erreur !.\n""Click Cancel to exit."), QMessageBox::Cancel);
+        }
+            }
+    else
+      {  QMessageBox::critical(nullptr, QObject::tr("Supprimer reclamation"),
+                    QObject::tr("Erreur reclamaiton introuvable !\n"
+                                "Click Cancel to exit."), QMessageBox::Cancel);
+        ui->lineEdit_id_supp_rec->clear();
+    }
+}
+
+void stock::on_lineEdit_recherche_rec_textChanged()
+{
+    if(ui->lineEdit_recherche_rec->text() == "")
+            {
+                ui->tab_reclamation->setModel(tmpreclamation.afficher());
+            }
+            else
+            {
+                 ui->tab_reclamation->setModel(tmpreclamation.recherche(ui->lineEdit_recherche_rec->text()));
+           //      qDebug() <<ui->lineEdit_rechercher_aliment->text();
+            }
+}
+
+void stock::on_pushButton_print_rec_clicked()
+{
+    QString strStream;
+            QTextStream out(&strStream);
+            const int rowCount = ui->tab_reclamation->model()->rowCount();
+            const int columnCount =ui->tab_reclamation->model()->columnCount();
+
+            out <<  "<html>\n"
+                    "<head>\n"
+                    "<meta Content=\"Text/html; charset=Windows-1251\">\n"
+                    <<  QString("<title>%1</title>\n").arg("eleve")
+                    <<  "</head>\n"
+                    "<body bgcolor=#CFC4E1 link=#5000A0>\n"
+                        "<img src=':/new/prefix1/icon/logo.webp' width='100' height='100'>\n"
+                        "<h1>Liste des reclamations</h1>"
+
+
+
+                        "<table border=1 cellspacing=0 cellpadding=2>\n";
+
+
+            // headers
+                out << "<thead><tr bgcolor=#f0f0f0>";
+                for (int column = 0; column < columnCount; column++)
+                    if (!ui->tab_reclamation->isColumnHidden(column))
+                        out << QString("<th>%1</th>").arg(ui->tab_reclamation->model()->headerData(column, Qt::Horizontal).toString());
+                out << "</tr></thead>\n";
+                // data table
+                   for (int row = 0; row < rowCount; row++) {
+                       out << "<tr>";
+                       for (int column = 0; column < columnCount; column++) {
+                           if (!ui->tab_reclamation->isColumnHidden(column)) {
+                               QString data = ui->tab_reclamation->model()->data(ui->tab_reclamation->model()->index(row, column)).toString().simplified();
+                               out << QString("<td bkcolor=0>%1</td>").arg((!data.isEmpty()) ? data : QString("&nbsp;"));
+                           }
+                       }
+                       out << "</tr>\n";
+                   }
+                   out <<  "</table>\n"
+                       "</body>\n"
+                       "</html>\n";
+
+                   QTextDocument *document = new QTextDocument();
+                   document->setHtml(strStream);
+
+                   QPrinter printer;
+
+                   QPrintDialog *dialog = new QPrintDialog(&printer, NULL);
+                   if (dialog->exec() == QDialog::Accepted) {
+                       document->print(&printer);}
+}
+
+void stock::on_pushButton_pdf_rec_clicked()
+{
+    QString strStream;
+            QTextStream out(&strStream);
+            const int rowCount = ui->tab_reclamation->model()->rowCount();
+            const int columnCount =ui->tab_reclamation->model()->columnCount();
+
+            out <<  "<html>\n"
+                    "<head>\n"
+                    "<meta Content=\"Text/html; charset=Windows-1251\">\n"
+                    <<  QString("<title>%1</title>\n").arg("eleve")
+                    <<  "</head>\n"
+                    "<body bgcolor=#CFC4E1 link=#5000A0>\n"
+                        "<img src=':/new/prefix1/icon/logo.webp' width='100' height='100'>\n"
+                        "<h1>Liste des reclamation</h1>"
+
+
+
+                        "<table border=1 cellspacing=0 cellpadding=2>\n";
+
+
+            // headers
+                out << "<thead><tr bgcolor=#f0f0f0>";
+                for (int column = 0; column < columnCount; column++)
+                    if (!ui->tab_reclamation->isColumnHidden(column))
+                        out << QString("<th>%1</th>").arg(ui->tab_reclamation->model()->headerData(column, Qt::Horizontal).toString());
+                out << "</tr></thead>\n";
+                // data table
+                   for (int row = 0; row < rowCount; row++) {
+                       out << "<tr>";
+                       for (int column = 0; column < columnCount; column++) {
+                           if (!ui->tab_reclamation->isColumnHidden(column)) {
+                               QString data = ui->tab_reclamation->model()->data(ui->tab_reclamation->model()->index(row, column)).toString().simplified();
+                               out << QString("<td bkcolor=0>%1</td>").arg((!data.isEmpty()) ? data : QString("&nbsp;"));
+                           }
+                       }
+                       out << "</tr>\n";
+                   }
+                   out <<  "</table>\n"
+                       "</body>\n"
+                       "</html>\n";
+
+    QTextDocument *document = new QTextDocument();
+    document->setHtml(strStream);
+
+
+  //  QTextDocument document;
+   // document.setHtml(html);
+    QPrinter printer(QPrinter::PrinterResolution);
+    printer.setOutputFormat(QPrinter::PdfFormat);
+    printer.setOutputFileName("reclamation.pdf");
+    document->print(&printer);
+}
