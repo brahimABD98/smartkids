@@ -588,3 +588,88 @@ void gestion_activite::on_pushButton_supp_livre_clicked()
         ui->lineEdit_supp_livre->clear() ;
     }
 }
+
+void gestion_activite::on_pushButton_PDF_livre_clicked()
+{
+    QString strStream;
+            QTextStream out(&strStream);
+            const int rowCount = ui->table_livre->model()->rowCount();
+            const int columnCount =ui->table_livre->model()->columnCount();
+
+            out <<  "<html>\n"
+                    "<head>\n"
+                    "<meta Content=\"Text/html; charset=Windows-1251\">\n"
+                    <<  QString("<title>%1</title>\n").arg("livre")
+                    <<  "</head>\n"
+                    "<body bgcolor=#CFC4E1 link=#5000A0>\n"
+                        "<img src='C:/Users/ksemt/Desktop/final/icon/logo.webp' width='100' height='100'>\n"
+                        "<h1>Liste des livres</h1>"
+
+
+
+                        "<table border=1 cellspacing=0 cellpadding=2>\n";
+
+
+            // headers
+                out << "<thead><tr bgcolor=#f0f0f0>";
+                for (int column = 0; column < columnCount; column++)
+                    if (!ui->table_livre->isColumnHidden(column))
+                        out << QString("<th>%1</th>").arg(ui->table_livre->model()->headerData(column, Qt::Horizontal).toString());
+                out << "</tr></thead>\n";
+                // data table
+                   for (int row = 0; row < rowCount; row++) {
+                       out << "<tr>";
+                       for (int column = 0; column < columnCount; column++) {
+                           if (!ui->table_livre->isColumnHidden(column)) {
+                               QString data = ui->table_livre->model()->data(ui->table_livre->model()->index(row, column)).toString().simplified();
+                               out << QString("<td bkcolor=0>%1</td>").arg((!data.isEmpty()) ? data : QString("&nbsp;"));
+                           }
+                       }
+                       out << "</tr>\n";
+                   }
+                   out <<  "</table>\n"
+                       "</body>\n"
+                       "</html>\n";
+
+                   QTextDocument *document = new QTextDocument();
+                   document->setHtml(strStream);
+
+                   QPrinter printer;
+
+                   QPrintDialog *dialog = new QPrintDialog(&printer, NULL);
+                   if (dialog->exec() == QDialog::Accepted) {
+                       document->print(&printer);
+                }
+}
+
+void gestion_activite::on_lineEdit_recherche_livre_textChanged()
+{
+    if(ui->lineEdit_recherche_livre->text() == "")
+            {
+                ui->table_livre->setModel(tmplivre.afficher_livre());
+            }
+            else
+            {
+                 ui->table_livre->setModel(tmplivre.rechercher_livre(ui->lineEdit_recherche_livre->text()));
+            }
+}
+
+void gestion_activite::on_table_livre_doubleClicked(const QModelIndex &index)
+{
+    if ((index.isValid()) && (index.column() == 4)  ) {
+
+        QString nom;
+        QString num;
+        int id = index.data().toInt();
+        QSqlQuery query=tmpeleves.rechercher_id(id);
+        if (query.next()) {
+        nom= query.value(1).toString();
+        num= query.value(4).toString();
+        }
+
+
+        QMessageBox::information(nullptr, QObject::tr("Salle"),
+                          QObject::tr(" Nom : %1 \n N° de téléphone: %2 ") .arg(nom).arg(num), QMessageBox::Cancel);
+
+    }
+}

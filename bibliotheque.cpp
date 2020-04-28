@@ -98,7 +98,7 @@ QSqlQueryModel * Bibliotheque::rechercher_livre (const QString &aux)
 {
     QSqlQueryModel * model = new QSqlQueryModel();
 
-    model->setQuery("select * from bibliotheque where ( LOWER (ID || NOM || RESPONSABLE || JOUR  ) LIKE '%"+aux+"%')");
+    model->setQuery("select * from bibliotheque where ( LOWER (ID || NOM || AUTEUR || LANGUE  ) LIKE '%"+aux+"%')");
     model->setHeaderData(0, Qt::Horizontal, QObject::tr("Id"));
     model->setHeaderData(1, Qt::Horizontal, QObject::tr("Nom "));
     model->setHeaderData(2, Qt::Horizontal, QObject::tr("Auteur"));

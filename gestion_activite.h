@@ -7,6 +7,7 @@
 #include "club.h"
 #include "salles.h"
 #include "bibliotheque.h"
+#include "eleves.h"
 
 #include <QDialog>
 
@@ -87,12 +88,19 @@ private slots:
 
     void on_pushButton_supp_livre_clicked();
 
+    void on_pushButton_PDF_livre_clicked();
+
+    void on_lineEdit_recherche_livre_textChanged();
+
+    void on_table_livre_doubleClicked(const QModelIndex &index);
+
 private:
     Ui::gestion_activite *ui;
     Excursion tmpexcursion;
     Club tmpclub;
     salles tmpsalles;
     Bibliotheque tmplivre;
+    eleves tmpeleves;
 };
 
 #endif // GESTION_H

@@ -1588,7 +1588,7 @@ font-weight:bold;</string>
       <string>Rechercher :</string>
      </property>
     </widget>
-    <widget class="QLineEdit" name="lineEdit_recherche_excursion_2">
+    <widget class="QLineEdit" name="lineEdit_recherche_livre">
      <property name="geometry">
       <rect>
        <x>680</x>
@@ -2228,7 +2228,7 @@ border-image: url(:/new/prefix1/icon/suppr.png);</string>
        <bool>true</bool>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_PDF_exc_2">
+     <widget class="QPushButton" name="pushButton_PDF_livre">
       <property name="geometry">
        <rect>
         <x>202</x>
