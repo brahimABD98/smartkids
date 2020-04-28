@@ -22,6 +22,9 @@ stock::stock(QWidget *parent) :
     ui->tableView_aliment->setModel(tmpaliment.afficher());
     ui->tableView_equipement->setModel(tmpequipement.afficher());
     ui->tab_reclamation->setModel(tmpreclamation.afficher());
+    ui->comboBox_salle_a_e->setModel(tmpequipement.affichersalle());
+    ui->comboBox_salle_m_e->setModel(tmpequipement.affichersalle());
+
 }
 
 stock::~stock()
@@ -422,7 +425,7 @@ void stock::on_pushButton_a_e_clicked()
 
            QString nom= ui->lineEdit_nom_equipement->text();
            QString type= ui->lineEdit_type_equipement->text();
-            QString salle_affecter =ui->lineEdit_salle_affecter->text();
+           QString salle_affecter =ui->comboBox_salle_a_e->currentText();
            //QDate dlc =ui->dateEdit_dlc->date();
            double prix_unitaire = ui->doubleSpinBox_prix_unutaire_equipement->value();
            int quantite=ui->spinBox_quatite_equipement->text().toInt();
@@ -452,7 +455,8 @@ void stock::on_pushButton_ok_m_e_clicked()
 {
     double prix_totale= ui->spinBox_quatite_modif_equip->text().toInt() * ui->doubleSpinBox_prix_unutaire_modif_equip->value() ;
        bool test =tmpequipement.modifier_equipement(ui->lineEdit_id_modif_equip->text().toInt(),ui->lineEdit_nom_modif_equip->text(),   ui->spinBox_quatite_modif_equip->text().toInt(),
-                                              ui->lineEdit_type_modif_equip->text(),  ui->lineEdit_salle_modif_equip->text(),
+                                              ui->lineEdit_type_modif_equip->text(),             ui->comboBox_salle_m_e->currentText()
+,
                                    ui->doubleSpinBox_prix_unutaire_modif_equip->value(),prix_totale);
 
          if(test)
@@ -487,8 +491,8 @@ void stock::on_lineEdit_id_modif_equip_textChanged()
             ui->lineEdit_nom_modif_equip->setText(nom);
 
             salle_affecter= query.value(4).toString();
-            ui->lineEdit_salle_modif_equip->setText(salle_affecter);
 
+            ui->comboBox_salle_m_e->setCurrentText(salle_affecter);
 
 
             quantite= query.value(2).toInt();
@@ -504,7 +508,7 @@ void stock::on_lineEdit_id_modif_equip_textChanged()
             else
                {
         ui->lineEdit_nom_modif_equip->clear();
-        ui->lineEdit_salle_modif_equip->clear();
+        ui->comboBox_salle_m_e->clear();
         ui->spinBox_quatite_modif_equip->clear();
         ui->lineEdit_type_modif_equip->clear();
         ui->doubleSpinBox_prix_unutaire_modif_equip->clear();

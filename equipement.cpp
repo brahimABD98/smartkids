@@ -131,3 +131,10 @@ QSqlQuery equipement::rechercher_salle(int salle)
 
     return query;
 }
+QSqlQueryModel * equipement::affichersalle ()
+{
+    QSqlQueryModel * model= new QSqlQueryModel();
+    model->setQuery("select NUMS from SALLES");
+    model->setHeaderData(0, Qt::Horizontal, QObject::tr("NUMS"));
+    return model;
+}
