@@ -35,6 +35,7 @@ SOURCES += \
     instituteur.cpp \
     main.cpp \
     mainwindow.cpp \
+    reclamation.cpp \
     salles.cpp \
     staff_technique.cpp \
     stock.cpp
@@ -57,6 +58,7 @@ HEADERS += \
     gestion_employe.h \
     instituteur.h \
     mainwindow.h \
+    reclamation.h \
     salles.h \
     staff_technique.h \
     stock.h

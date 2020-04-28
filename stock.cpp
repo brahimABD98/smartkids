@@ -12,7 +12,7 @@
 #include "gestion_activite.h"
 #include "gestion_employe.h"
 #include "charrad/gestiono9.h"
-
+#include "reclamation.h"
 stock::stock(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::stock)
@@ -21,6 +21,7 @@ stock::stock(QWidget *parent) :
     //affichage aliment et equipement
     ui->tableView_aliment->setModel(tmpaliment.afficher());
     ui->tableView_equipement->setModel(tmpequipement.afficher());
+    ui->tab_reclamation->setModel(tmpreclamation.afficher());
 }
 
 stock::~stock()
@@ -751,4 +752,73 @@ void stock::on_pushButton_equipement_2_clicked()
 void stock::on_pushButton_reclamation_clicked()
 {
     ui->stackedWidget_2->setCurrentIndex(2);
+}
+
+void stock::on_pushButton_ajouter_rec_clicked()
+{
+    ui->stackedWidget_crud_rec->setCurrentIndex(0);
+}
+
+void stock::on_pushButton_modifier_rec_clicked()
+{
+ ui->stackedWidget_crud_rec->setCurrentIndex(1);
+}
+
+void stock::on_pushButton_supprimer_rec_clicked()
+{
+    ui->stackedWidget_crud_rec->setCurrentIndex(2);
+}
+
+void stock::on_pushButton_exporter_rec_clicked()
+{
+    ui->stackedWidget_crud_rec->setCurrentIndex(3);
+}
+
+void stock::on_pushButton_ok_a_r_clicked()
+{
+    int id=   ui->lineEdit_id_ar->text().toInt();
+
+           QString nom= ui->lineEdit_nom_ar->text();
+           QString mail= ui->lineEdit_mail_ar->text();
+           QDate dater =ui->dateEdit_date_ar->date();
+
+
+           QString message= ui->textEdit_msg_ar->toPlainText();
+           int i,j;
+           bool test1=false;
+           bool test2=true;
+
+           for (i=0 ; i<mail.length();i++)
+           {
+                if (mail[i]=="@")
+           {
+                 test1=true;
+           }
+                }
+           for (j=0;j<nom.length();j++) {
+               if (nom[j]=="0" || nom[j]=="1" || nom[j]=="2" || nom[j]=="3" || nom[j]=="4" || nom[j]=="5" || nom[j]=="6" || nom[j]=="7" || nom[j]=="8" || nom[j]=="9")
+                  {
+                   test2=false;
+                   }
+           }
+
+           if (test1 && test2)
+           {
+            reclamation r(id,nom,dater,mail,message);
+            bool test=r.ajouter();
+            if(test)
+          {
+                ui->tab_reclamation->setModel(tmpreclamation.afficher());
+
+          QMessageBox::information(nullptr, QObject::tr("Ajouter une réclamation"),
+                            QObject::tr("Réclamation ajoutée.\n"
+                                        "Click Cancel to exit."), QMessageBox::Cancel);
+
+          }
+            else
+                QMessageBox::critical(nullptr, QObject::tr("Ajouter une réclamation"),
+                            QObject::tr("Erreur !.\n"
+                                        "Click Cancel to exit."), QMessageBox::Cancel);
+
+          }
 }

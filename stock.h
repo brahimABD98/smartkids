@@ -3,7 +3,7 @@
 #include"equipement.h"
 #include "aliment.h"
 #include <QDialog>
-
+#include "reclamation.h"
 namespace Ui {
 class stock;
 }
@@ -102,11 +102,21 @@ private slots:
 
     void on_pushButton_reclamation_clicked();
 
+    void on_pushButton_ajouter_rec_clicked();
+
+    void on_pushButton_modifier_rec_clicked();
+
+    void on_pushButton_supprimer_rec_clicked();
+
+    void on_pushButton_exporter_rec_clicked();
+
+    void on_pushButton_ok_a_r_clicked();
+
 private:
     Ui::stock *ui;
     aliments tmpaliment;
     equipement tmpequipement;
-
+    reclamation tmpreclamation;
 };
 
 #endif // STOCK_H
