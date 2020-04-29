@@ -94,6 +94,10 @@ private slots:
 
     void on_table_livre_doubleClicked(const QModelIndex &index);
 
+    void on_pushButton_tri_asc_clicked();
+
+    void on_pushButton_tri_desc_clicked();
+
 private:
     Ui::gestion_activite *ui;
     Excursion tmpexcursion;

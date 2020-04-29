@@ -697,3 +697,14 @@ void gestion_activite::on_table_livre_doubleClicked(const QModelIndex &index)
 
 
 
+
+
+void gestion_activite::on_pushButton_tri_asc_clicked()
+{
+    ui->table_excursion->setModel(tmpexcursion.trie(0));
+}
+
+void gestion_activite::on_pushButton_tri_desc_clicked()
+{
+    ui->table_excursion->setModel(tmpexcursion.trie(1));
+}

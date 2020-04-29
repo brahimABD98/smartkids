@@ -176,7 +176,7 @@ border-image: url(:/new/prefix1/icon/stock.png);</string>
     </rect>
    </property>
    <property name="currentIndex">
-    <number>2</number>
+    <number>1</number>
    </property>
    <widget class="QWidget" name="page_6">
     <widget class="QTableView" name="table_club">
@@ -1551,6 +1551,44 @@ background-color: rgb(171, 152, 203);</string>
        </property>
       </widget>
      </widget>
+    </widget>
+    <widget class="QPushButton" name="pushButton_tri_asc">
+     <property name="geometry">
+      <rect>
+       <x>410</x>
+       <y>410</y>
+       <width>75</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border-color: rgb(255, 255, 255);
+
+border-radius: 10px;
+background-color: rgb(171, 152, 203);</string>
+     </property>
+     <property name="text">
+      <string>Tri ASC</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_tri_desc">
+     <property name="geometry">
+      <rect>
+       <x>490</x>
+       <y>410</y>
+       <width>75</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">border-color: rgb(255, 255, 255);
+
+border-radius: 10px;
+background-color: rgb(171, 152, 203);</string>
+     </property>
+     <property name="text">
+      <string>Tri DESC</string>
+     </property>
     </widget>
    </widget>
    <widget class="QWidget" name="page_3">
