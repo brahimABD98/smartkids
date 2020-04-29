@@ -12,6 +12,7 @@
 #include "stock.h"
 #include "charrad/gestiono9.h"
 #include "bibliotheque.h"
+#include "QCheckBox"
 
 gestion_activite::gestion_activite(QWidget *parent) :
     QDialog(parent),
@@ -24,6 +25,7 @@ gestion_activite::gestion_activite(QWidget *parent) :
     ui->dateEdit_excu_ajout->setDate(QDate::currentDate());
     ui->comboBox_eleve_livre->setModel(tmplivre.afficher_eleve());
     ui->comboBox_modif_eleve_livre->setModel(tmplivre.afficher_eleve());
+
 }
 
 gestion_activite::~gestion_activite()
@@ -485,11 +487,20 @@ void gestion_activite::on_pushButton_30_clicked()
 
 void gestion_activite::on_pushButton_ajout_livre_clicked()
 {
+    QCheckBox* checkBox = ui->checkBox;
     int id = ui->lineEdit_ajout_id_livre->text().toInt();
     QString nom= ui->lineEdit_ajout_nom_livre->text();
     QString auteur= ui->lineEdit_ajout_auteur_livre->text();
     QString langue= ui->comboBox_langue_livre->currentText();
-    int eleve = ui->comboBox_eleve_livre->currentText().toInt();
+    int eleve;
+    if(checkBox->checkState() == Qt::Unchecked)
+        {
+        eleve = ui->comboBox_eleve_livre->currentText().toInt();
+        }
+    else
+        {
+        eleve = 0;
+        }
   Bibliotheque b(id,nom,auteur,langue,eleve);
   bool test=b.ajouter_livre();
   if(test)
@@ -528,13 +539,21 @@ void gestion_activite::on_lineEdit_modif_id_livre_textChanged()
 
 void gestion_activite::on_pushButton_modif_livre_clicked()
 {
+    bool test;
+    QCheckBox* checkBox = ui->checkBox_2;
     QString nom= ui->lineEdit_modif_nom_livre->text();
     QString auteur= ui->lineEdit_modif_auteur_livre->text();
     QString langue= ui->comboBox_modif_langue_livre->currentText();
     int eleve = ui->comboBox_modif_eleve_livre->currentText().toInt();
-
-    bool test =tmplivre.modifier_livre(ui->lineEdit_modif_id_livre->text().toInt(),ui->lineEdit_modif_nom_livre->text()
+    if(checkBox->checkState() == Qt::Unchecked){
+        test =tmplivre.modifier_livre(ui->lineEdit_modif_id_livre->text().toInt(),ui->lineEdit_modif_nom_livre->text()
                 ,auteur,langue,eleve);
+        }
+    else {
+        test =tmplivre.modifier_livre(ui->lineEdit_modif_id_livre->text().toInt(),ui->lineEdit_modif_nom_livre->text()
+                ,auteur,langue,0);
+
+        }
 
       if(test)
       {
@@ -661,6 +680,7 @@ void gestion_activite::on_table_livre_doubleClicked(const QModelIndex &index)
         QString nom;
         QString num;
         int id = index.data().toInt();
+        if (!(id==0)){
         QSqlQuery query=tmpeleves.rechercher_id(id);
         if (query.next()) {
         nom= query.value(1).toString();
@@ -671,5 +691,9 @@ void gestion_activite::on_table_livre_doubleClicked(const QModelIndex &index)
         QMessageBox::information(nullptr, QObject::tr("Salle"),
                           QObject::tr(" Nom : %1 \n N° de téléphone: %2 ") .arg(nom).arg(num), QMessageBox::Cancel);
 
-    }
+       }
+       }
 }
+
+
+
