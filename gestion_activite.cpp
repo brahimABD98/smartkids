@@ -509,6 +509,10 @@ QMessageBox::information(nullptr, QObject::tr("Ajouter un livre"),
                   QObject::tr("Livre ajouté.\n"
                               "Click Cancel to exit."), QMessageBox::Cancel);
 }
+  else
+      QMessageBox::critical(nullptr, QObject::tr("Ajouter un livre"),
+                  QObject::tr("Erreur !.\n"
+                              "Click Cancel to exit."), QMessageBox::Cancel);
 }
 
 void gestion_activite::on_lineEdit_modif_id_livre_textChanged()
