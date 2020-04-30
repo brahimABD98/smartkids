@@ -77,6 +77,9 @@
     <property name="text">
      <string/>
     </property>
+    <property name="echoMode">
+     <enum>QLineEdit::Password</enum>
+    </property>
    </widget>
    <widget class="QLabel" name="label">
     <property name="geometry">
@@ -88,7 +91,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>Identifiant</string>
+     <string>username</string>
     </property>
     <property name="textFormat">
      <enum>Qt::PlainText</enum>
@@ -123,7 +126,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>Mot de passe</string>
+     <string>password</string>
     </property>
    </widget>
   </widget>

@@ -24,6 +24,7 @@ SOURCES += \
     charrad/revenu.cpp \
     charrad/statistique.cpp \
     club.cpp \
+    compte.cpp \
     connexion.cpp \
     eleves.cpp \
     equipement.cpp \
@@ -46,6 +47,7 @@ HEADERS += \
     charrad/revenu.h \
     charrad/statistique.h \
     club.h \
+    compte.h \
     connexion.h \
     eleves.h \
     equipement.h \

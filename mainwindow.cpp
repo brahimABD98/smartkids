@@ -19,7 +19,30 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pushButton_clicked()
 {
-    hide();
-    Gestion G;
-    G.exec();
+    QString username;
+    QString password;
+    username=ui->lineEdit->text();
+    password=ui->lineEdit_2->text();
+    QSqlQuery qry;
+    if(qry.exec( "select * from compte where username='"+username +"' and password='"+password +"'"))
+      {
+        int count=0;
+    while(qry.next())
+       {
+        count++;
+        }
+    if(count==1)
+    {
+        hide();
+        Gestion G;
+        G.exec();
+    }
+    if(count<1)
+    {
+        QMessageBox::critical(nullptr, QObject::tr("password incorrect"),
+                    QObject::tr("Erreur !.\n"
+                                "Click Cancel to exit."), QMessageBox::Cancel);
+        /*  ui->label-setText("false")*/
+    }
+    }
 }
