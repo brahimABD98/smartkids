@@ -5,6 +5,9 @@
 #include <QSqlQueryModel>
 #include "excursion.h"
 #include "club.h"
+#include "salles.h"
+#include "bibliotheque.h"
+#include "eleves.h"
 
 #include <QDialog>
 
@@ -67,10 +70,41 @@ private slots:
 
     void on_pushButton_17_clicked();
 
+    void on_table_club_doubleClicked(const QModelIndex &index);
+
+    void on_pushButton_eleves_4_clicked();
+
+    void on_pushButton_27_clicked();
+
+    void on_pushButton_29_clicked();
+
+    void on_pushButton_30_clicked();
+
+    void on_pushButton_ajout_livre_clicked();
+
+    void on_lineEdit_modif_id_livre_textChanged();
+
+    void on_pushButton_modif_livre_clicked();
+
+    void on_pushButton_supp_livre_clicked();
+
+    void on_pushButton_PDF_livre_clicked();
+
+    void on_lineEdit_recherche_livre_textChanged();
+
+    void on_table_livre_doubleClicked(const QModelIndex &index);
+
+    void on_pushButton_tri_asc_clicked();
+
+    void on_pushButton_tri_desc_clicked();
+
 private:
     Ui::gestion_activite *ui;
     Excursion tmpexcursion;
     Club tmpclub;
+    salles tmpsalles;
+    Bibliotheque tmplivre;
+    eleves tmpeleves;
 };
 
 #endif // GESTION_H

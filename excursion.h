@@ -20,6 +20,7 @@ class Excursion
     bool modifier_excursion(int ,QString ,QString,QString ,int);
     QSqlQuery rechercher_id_excursion(int id);
     QSqlQueryModel * rechercher_excursion (const QString &aux);
+    QSqlQueryModel* trie(int index);
 private:
     QString destination,responsable,date;
     int id,prix;

@@ -21,6 +21,7 @@ class equipement
          QSqlQueryModel * afficher();
         QSqlQuery rechercher_id(int id);
         QSqlQuery rechercher_salle(int salle);
+        QSqlQueryModel * affichersalle ();
         //  virtual ~equipement();
 
         int Getid_equipement() { return id_equipement; }

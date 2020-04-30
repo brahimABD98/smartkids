@@ -22,6 +22,7 @@
         <file>icon/Fichier 1.png</file>
         <file>icon/bus.png</file>
         <file>icon/reclamation.png</file>
+        <file>icon/biblio.png</file>
     </qresource>
     <qresource prefix="/">
         <file>icon/bus.png</file>

@@ -109,3 +109,25 @@ QSqlQueryModel * Excursion::rechercher_excursion (const QString &aux)
 
     return model;
 }
+
+
+QSqlQueryModel* Excursion::trie(int index)
+{
+    QSqlQueryModel* model = new QSqlQueryModel();
+    if(index == 0)
+    {
+        model->setQuery("select *FROM excursion ORDER BY PRIX ASC");
+    }
+    else
+    {
+        model->setQuery("select *FROM excursion ORDER BY PRIX DESC ");
+    }
+
+
+    model->setHeaderData(0, Qt::Horizontal, QObject::tr("Id"));
+    model->setHeaderData(1, Qt::Horizontal, QObject::tr("Destination "));
+    model->setHeaderData(2, Qt::Horizontal, QObject::tr("Responsable"));
+    model->setHeaderData(3, Qt::Horizontal, QObject::tr("Date"));
+    model->setHeaderData(4, Qt::Horizontal, QObject::tr("Prix"));
+    return model;
+}
