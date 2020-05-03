@@ -4,6 +4,7 @@
 #include "salles.h"
 #include "bus.h"
 #include "equipement.h"
+#include "bibliotheque.h"
 #include <QDialog>
 
 namespace Ui {
@@ -118,12 +119,15 @@ private slots:
 
         void on_pushButton_stock_clicked();
 
+        void on_tableView_E_doubleClicked(const QModelIndex &index);
+
 private:
     Ui::Gestion *ui;
     eleves tmpeleve;
     salles tmpsalle;
     bus tmpbus;
     equipement tmpequipement;
+    Bibliotheque tmpbibliotheque;
 };
 
 #endif // GESTION_H

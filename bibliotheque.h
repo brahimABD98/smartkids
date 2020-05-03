@@ -19,6 +19,7 @@ class Bibliotheque
     QSqlQuery rechercher_id_livre(int id);
     QSqlQueryModel * rechercher_livre (const QString &aux);
     QSqlQueryModel * afficher_eleve ();
+    QSqlQuery rechercher_eleve(int id);
 private:
     QString nom,auteur,langue;
     int id,eleve;
