@@ -114,6 +114,7 @@ QSqlQueryModel * Bibliotheque::afficher_eleve(){
     model->setHeaderData(0, Qt::Horizontal, QObject::tr("eleve"));
     return model;
 }
+
 QSqlQuery Bibliotheque::rechercher_eleve(int id)
 {
 

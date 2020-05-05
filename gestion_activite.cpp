@@ -22,9 +22,12 @@ gestion_activite::gestion_activite(QWidget *parent) :
     ui->table_club->setModel(tmpclub.afficher_club());
     ui->table_excursion->setModel(tmpexcursion.afficher_excursion());
     ui->table_livre->setModel(tmplivre.afficher_livre());
-    ui->dateEdit_excu_ajout->setDate(QDate::currentDate());
+    ui->dateEdit_excu_ajout->setDate(QDate::currentDate()); 
+    ui->checkBox->setChecked(true);
+    ui->checkBox_2->setChecked(true);
     ui->comboBox_eleve_livre->setModel(tmplivre.afficher_eleve());
     ui->comboBox_modif_eleve_livre->setModel(tmplivre.afficher_eleve());
+
 
 }
 
@@ -493,6 +496,7 @@ void gestion_activite::on_pushButton_ajout_livre_clicked()
     QString auteur= ui->lineEdit_ajout_auteur_livre->text();
     QString langue= ui->comboBox_langue_livre->currentText();
     int eleve;
+
     if(checkBox->checkState() == Qt::Unchecked)
         {
         eleve = ui->comboBox_eleve_livre->currentText().toInt();
