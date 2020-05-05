@@ -2,6 +2,7 @@
 #include "ui_gestion_employe.h"
 #include "staff_technique.h"
 #include "instituteur.h"
+#include "compte.h"
 #include <QMessageBox>
 #include <QSqlQueryModel>
 #include <QTextDocument>
@@ -55,15 +56,33 @@ void gestion_employe::on_pushButton_24_clicked()
     ui->stackedWidget_3->setCurrentIndex(2);
 }
 
-void gestion_employe::on_pushButton_16_clicked()
+void gestion_employe::on_pushButton_29_clicked()
 {
     ui->stackedWidget_2->setCurrentIndex(0);
 }
 
-void gestion_employe::on_pushButton_26_clicked()
+void gestion_employe::on_pushButton_28_clicked()
 {
     ui->stackedWidget_2->setCurrentIndex(1);
 }
+void gestion_employe::on_pushButton_9_clicked()
+{
+     ui->stackedWidget_2->setCurrentIndex(2);
+}
+void gestion_employe::on_pushButton_26_clicked()
+{
+    ui->stackedWidget_4->setCurrentIndex(0);
+}
+
+void gestion_employe::on_pushButton_30_clicked()
+{
+     ui->stackedWidget_4->setCurrentIndex(1);
+}
+void gestion_employe::on_pushButton_31_clicked()
+{
+    ui->stackedWidget_4->setCurrentIndex(2);
+}
+
 
 void gestion_employe::on_pushButton_ajtinst_2_clicked()
 {
@@ -305,6 +324,72 @@ void gestion_employe::on_lineEdit_44_textChanged()
         }
 }
 
+
+/*------------------------------------------------------------------------*/
+
+
+
+void gestion_employe::on_pushButton_ajtcomp_clicked()
+{
+    int id = ui->lineEdit_52->text().toUInt();
+    QString username= ui->lineEdit_53->text();
+    int password= ui->lineEdit_54->text().toUInt();
+
+  compte c(id,username,password);
+  bool test=c.ajouter();
+  if(test)
+{ui->tableView_2->setModel(tmpcompte.afficher());;//refresh
+QMessageBox::information(nullptr, QObject::tr("Ajouter un staff technique"),
+                  QObject::tr("staff_technique ajouté.\n"
+                              "Click Cancel to exit."), QMessageBox::Cancel);
+
+}
+  else
+      QMessageBox::critical(nullptr, QObject::tr("Ajouter un staff technique"),
+                  QObject::tr("Erreur !.\n"
+                              "Click Cancel to exit."), QMessageBox::Cancel);
+
+
+}
+
+void gestion_employe::on_pushButton_modcomp_clicked()
+{
+    int id = ui->lineEdit_59->text().toUInt();
+    QString username = ui->lineEdit_58->text();
+    int password= ui->lineEdit_57->text().toInt();
+
+    compte c ;
+    bool atout=c.modifier(id,username,password);
+    if(atout)
+    {ui->tableView_2->setModel(tmpcompte.afficher());
+        QMessageBox::information(nullptr, QObject::tr("modifier un staff technique"),
+                                 QObject::tr("staff technique modifié.\n"
+                                             "Click Cancel to exit."), QMessageBox::Cancel);}
+    else
+        QMessageBox::critical(nullptr, QObject::tr("Modifier un staff technique"),
+                              QObject::tr("Erreur !.\n"
+                                          "Click Cancel to exit."), QMessageBox::Cancel);
+}
+
+void gestion_employe::on_pushButton_sup_5_clicked()
+{
+int idd = ui->lineEdit_62->text().toInt();
+bool test=tmpcompte.supprimer(idd);
+if(test)
+{ui->tableView_2->setModel(tmpcompte.afficher());//refresh
+    QMessageBox::information(nullptr, QObject::tr("Supprimer un staff techniquet"),
+                QObject::tr("staff technique supprimé.\n"
+                            "Click Cancel to exit."), QMessageBox::Cancel);
+
+}
+else
+    QMessageBox::critical(nullptr, QObject::tr("Supprimer un staff technique"),
+                QObject::tr("Erreur !.\n"
+                            "Click Cancel to exit."), QMessageBox::Cancel);
+
+
+}
+
 void gestion_employe::on_pushButton_27_clicked()
 {
     hide();
@@ -325,3 +410,10 @@ void gestion_employe::on_pushButton_eleves_2_clicked()
     Gestion g;
     g.exec();
 }
+
+
+
+
+
+
+

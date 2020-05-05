@@ -112,6 +112,20 @@ private slots:
 
     void on_pushButton_ok_a_r_clicked();
 
+    void on_lineEdit_id_mr_textChanged();
+
+    void on_pushButton_ok_mr_clicked();
+
+    void on_lineEdit_id_supp_rec_textChanged();
+
+    void on_pushButton_s_r_clicked();
+
+    void on_lineEdit_recherche_rec_textChanged();
+
+    void on_pushButton_print_rec_clicked();
+
+    void on_pushButton_pdf_rec_clicked();
+
 private:
     Ui::stock *ui;
     aliments tmpaliment;

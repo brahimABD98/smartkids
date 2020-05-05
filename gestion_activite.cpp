@@ -12,6 +12,7 @@
 #include "stock.h"
 #include "charrad/gestiono9.h"
 #include "bibliotheque.h"
+#include "QCheckBox"
 
 gestion_activite::gestion_activite(QWidget *parent) :
     QDialog(parent),
@@ -21,7 +22,13 @@ gestion_activite::gestion_activite(QWidget *parent) :
     ui->table_club->setModel(tmpclub.afficher_club());
     ui->table_excursion->setModel(tmpexcursion.afficher_excursion());
     ui->table_livre->setModel(tmplivre.afficher_livre());
-    ui->dateEdit_excu_ajout->setDate(QDate::currentDate());
+    ui->dateEdit_excu_ajout->setDate(QDate::currentDate()); 
+    ui->checkBox->setChecked(true);
+    ui->checkBox_2->setChecked(true);
+    ui->comboBox_eleve_livre->setModel(tmplivre.afficher_eleve());
+    ui->comboBox_modif_eleve_livre->setModel(tmplivre.afficher_eleve());
+
+
 }
 
 gestion_activite::~gestion_activite()
@@ -483,11 +490,21 @@ void gestion_activite::on_pushButton_30_clicked()
 
 void gestion_activite::on_pushButton_ajout_livre_clicked()
 {
+    QCheckBox* checkBox = ui->checkBox;
     int id = ui->lineEdit_ajout_id_livre->text().toInt();
     QString nom= ui->lineEdit_ajout_nom_livre->text();
     QString auteur= ui->lineEdit_ajout_auteur_livre->text();
     QString langue= ui->comboBox_langue_livre->currentText();
-    int eleve = ui->comboBox_eleve_livre->currentText().toInt();
+    int eleve;
+
+    if(checkBox->checkState() == Qt::Unchecked)
+        {
+        eleve = ui->comboBox_eleve_livre->currentText().toInt();
+        }
+    else
+        {
+        eleve = 0;
+        }
   Bibliotheque b(id,nom,auteur,langue,eleve);
   bool test=b.ajouter_livre();
   if(test)
@@ -496,4 +513,206 @@ QMessageBox::information(nullptr, QObject::tr("Ajouter un livre"),
                   QObject::tr("Livre ajouté.\n"
                               "Click Cancel to exit."), QMessageBox::Cancel);
 }
+  else
+      QMessageBox::critical(nullptr, QObject::tr("Ajouter un livre"),
+                  QObject::tr("Erreur !.\n"
+                              "Click Cancel to exit."), QMessageBox::Cancel);
+}
+
+void gestion_activite::on_lineEdit_modif_id_livre_textChanged()
+{
+    int id=ui->lineEdit_modif_id_livre->text().toInt();
+
+
+    QSqlQuery query=tmplivre.rechercher_id_livre(id);
+    QString nom_l,auteur_l,langue_l;
+    QString eleve_l;
+
+
+         if (query.next())
+        {
+
+        nom_l= query.value(1).toString();
+        ui->lineEdit_modif_nom_livre->setText(nom_l);
+        auteur_l= query.value(2).toString();
+        ui->lineEdit_modif_auteur_livre->setText(auteur_l);
+        langue_l= query.value(3).toString();
+        ui->comboBox_modif_langue_livre->setCurrentText(langue_l);
+        eleve_l= query.value(4).toString();
+        ui->comboBox_modif_eleve_livre->setCurrentText(eleve_l);
+
+
+        }
+}
+
+void gestion_activite::on_pushButton_modif_livre_clicked()
+{
+    bool test;
+    QCheckBox* checkBox = ui->checkBox_2;
+    QString nom= ui->lineEdit_modif_nom_livre->text();
+    QString auteur= ui->lineEdit_modif_auteur_livre->text();
+    QString langue= ui->comboBox_modif_langue_livre->currentText();
+    int eleve = ui->comboBox_modif_eleve_livre->currentText().toInt();
+    if(checkBox->checkState() == Qt::Unchecked){
+        test =tmplivre.modifier_livre(ui->lineEdit_modif_id_livre->text().toInt(),ui->lineEdit_modif_nom_livre->text()
+                ,auteur,langue,eleve);
+        }
+    else {
+        test =tmplivre.modifier_livre(ui->lineEdit_modif_id_livre->text().toInt(),ui->lineEdit_modif_nom_livre->text()
+                ,auteur,langue,0);
+
+        }
+
+      if(test)
+      {
+          ui->table_livre->setModel(tmplivre.afficher_livre());//refresh
+          QMessageBox::information(nullptr, QObject::tr("Modifier un livre"),
+                            QObject::tr("Livre modifié.\n"
+                                        "Click Cancel to exit."), QMessageBox::Cancel);
+
+      }
+        else
+            QMessageBox::critical(nullptr, QObject::tr("Modifier un livre"),
+                        QObject::tr("Erreur !.\n"
+                           "Click Cancel to exit."), QMessageBox::Cancel);
+}
+
+void gestion_activite::on_pushButton_supp_livre_clicked()
+{
+    int id = ui->lineEdit_supp_livre->text().toInt();
+    QSqlQuery query=tmplivre.rechercher_id_livre(id);
+    QString nom_l,auteur_l,langue_l;
+    QString eleve_l;
+
+    if (query.next())
+   {
+    nom_l= query.value(1).toString();
+    auteur_l= query.value(2).toString();
+    langue_l= query.value(3).toString();
+    eleve_l= query.value(4).toString();
+   }
+
+    int reponse = QMessageBox::question(this, "Interrogatoire", "Voulez-vous supprimer le club :\n nom : " +nom_l+ "\n auteur : " +auteur_l+ "\n langue : " +langue_l+ "\n eleve : " +eleve_l , QMessageBox ::Yes | QMessageBox::No);
+
+    if (reponse == QMessageBox::Yes)
+    {
+        bool test=tmplivre.supprimer_livre(id);
+        if(test)
+        {ui->table_livre->setModel(tmplivre.afficher_livre());//refresh
+            QMessageBox::information(nullptr, QObject::tr("Supprimer un livre"),
+                        QObject::tr("Livre supprimé.\n"
+                                    "Click Cancel to exit."), QMessageBox::Cancel);
+
+        }
+        else
+            QMessageBox::critical(nullptr, QObject::tr("Supprimer un livre"),
+                        QObject::tr("Erreur !.\n"
+                                    "Click Cancel to exit."), QMessageBox::Cancel);
+         ui->lineEdit_supp_livre->clear() ;
+    }
+    else if (reponse == QMessageBox::No)
+    {
+        ui->lineEdit_supp_livre->clear() ;
+    }
+}
+
+void gestion_activite::on_pushButton_PDF_livre_clicked()
+{
+    QString strStream;
+            QTextStream out(&strStream);
+            const int rowCount = ui->table_livre->model()->rowCount();
+            const int columnCount =ui->table_livre->model()->columnCount();
+
+            out <<  "<html>\n"
+                    "<head>\n"
+                    "<meta Content=\"Text/html; charset=Windows-1251\">\n"
+                    <<  QString("<title>%1</title>\n").arg("livre")
+                    <<  "</head>\n"
+                    "<body bgcolor=#CFC4E1 link=#5000A0>\n"
+                        "<img src='C:/Users/ksemt/Desktop/final/icon/logo.webp' width='100' height='100'>\n"
+                        "<h1>Liste des livres</h1>"
+
+
+
+                        "<table border=1 cellspacing=0 cellpadding=2>\n";
+
+
+            // headers
+                out << "<thead><tr bgcolor=#f0f0f0>";
+                for (int column = 0; column < columnCount; column++)
+                    if (!ui->table_livre->isColumnHidden(column))
+                        out << QString("<th>%1</th>").arg(ui->table_livre->model()->headerData(column, Qt::Horizontal).toString());
+                out << "</tr></thead>\n";
+                // data table
+                   for (int row = 0; row < rowCount; row++) {
+                       out << "<tr>";
+                       for (int column = 0; column < columnCount; column++) {
+                           if (!ui->table_livre->isColumnHidden(column)) {
+                               QString data = ui->table_livre->model()->data(ui->table_livre->model()->index(row, column)).toString().simplified();
+                               out << QString("<td bkcolor=0>%1</td>").arg((!data.isEmpty()) ? data : QString("&nbsp;"));
+                           }
+                       }
+                       out << "</tr>\n";
+                   }
+                   out <<  "</table>\n"
+                       "</body>\n"
+                       "</html>\n";
+
+                   QTextDocument *document = new QTextDocument();
+                   document->setHtml(strStream);
+
+                   QPrinter printer;
+
+                   QPrintDialog *dialog = new QPrintDialog(&printer, NULL);
+                   if (dialog->exec() == QDialog::Accepted) {
+                       document->print(&printer);
+                }
+}
+
+void gestion_activite::on_lineEdit_recherche_livre_textChanged()
+{
+    if(ui->lineEdit_recherche_livre->text() == "")
+            {
+                ui->table_livre->setModel(tmplivre.afficher_livre());
+            }
+            else
+            {
+                 ui->table_livre->setModel(tmplivre.rechercher_livre(ui->lineEdit_recherche_livre->text()));
+            }
+}
+
+void gestion_activite::on_table_livre_doubleClicked(const QModelIndex &index)
+{
+    if ((index.isValid()) && (index.column() == 4)  ) {
+
+        QString nom;
+        QString num;
+        int id = index.data().toInt();
+        if (!(id==0)){
+        QSqlQuery query=tmpeleves.rechercher_id(id);
+        if (query.next()) {
+        nom= query.value(1).toString();
+        num= query.value(4).toString();
+        }
+
+
+        QMessageBox::information(nullptr, QObject::tr("Salle"),
+                          QObject::tr(" Nom : %1 \n N° de téléphone: %2 ") .arg(nom).arg(num), QMessageBox::Cancel);
+
+       }
+       }
+}
+
+
+
+
+
+void gestion_activite::on_pushButton_tri_asc_clicked()
+{
+    ui->table_excursion->setModel(tmpexcursion.trie(0));
+}
+
+void gestion_activite::on_pushButton_tri_desc_clicked()
+{
+    ui->table_excursion->setModel(tmpexcursion.trie(1));
 }

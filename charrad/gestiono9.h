@@ -43,7 +43,7 @@ private slots:
 
     void on_pushButton_6_clicked();
 
-    void on_lineEdit_textChanged(const QString &arg1);
+    void on_lineEdit_textChanged();
 
     void on_pushButton_7_clicked();
 
@@ -55,9 +55,9 @@ private slots:
 
     void on_pushButton_8_clicked();
 
-    void on_lineEdit_2_textChanged(const QString &arg1);
+    void on_lineEdit_2_textChanged();
 
-    void on_lineEdit_28_textChanged(const QString &arg1);
+    void on_lineEdit_28_textChanged();
 
     void on_pushButton_21_clicked();
 

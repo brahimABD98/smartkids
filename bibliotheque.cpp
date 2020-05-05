@@ -1,4 +1,5 @@
 #include "bibliotheque.h"
+#include "eleves.h"
 
 Bibliotheque::Bibliotheque()
 {
@@ -68,7 +69,7 @@ bool Bibliotheque::modifier_livre(int id,QString nom,QString auteur,QString lang
 {
 
     QSqlQuery qry;
-        qry.prepare("UPDATE club set NOM=(?),RESPONSABLE=(?),JOUR=(?),SALLE=(?) where ID=(?) ");
+        qry.prepare("UPDATE bibliotheque set NOM=(?),AUTEUR=(?),LANGUE=(?),ELEVE=(?) where ID=(?) ");
 
 
         qry.addBindValue(nom);
@@ -97,7 +98,7 @@ QSqlQueryModel * Bibliotheque::rechercher_livre (const QString &aux)
 {
     QSqlQueryModel * model = new QSqlQueryModel();
 
-    model->setQuery("select * from bibliotheque where ( LOWER (ID || NOM || RESPONSABLE || JOUR  ) LIKE '%"+aux+"%')");
+    model->setQuery("select * from bibliotheque where ( LOWER (ID || NOM || AUTEUR || LANGUE  ) LIKE '%"+aux+"%')");
     model->setHeaderData(0, Qt::Horizontal, QObject::tr("Id"));
     model->setHeaderData(1, Qt::Horizontal, QObject::tr("Nom "));
     model->setHeaderData(2, Qt::Horizontal, QObject::tr("Auteur"));
@@ -105,4 +106,22 @@ QSqlQueryModel * Bibliotheque::rechercher_livre (const QString &aux)
     model->setHeaderData(4, Qt::Horizontal, QObject::tr("Eleve"));
 
     return model;
+}
+
+QSqlQueryModel * Bibliotheque::afficher_eleve(){
+    QSqlQueryModel * model= new QSqlQueryModel();
+    model->setQuery("select ID from eleves");
+    model->setHeaderData(0, Qt::Horizontal, QObject::tr("eleve"));
+    return model;
+}
+
+QSqlQuery Bibliotheque::rechercher_eleve(int id)
+{
+
+    QSqlQuery query;
+    query.prepare("SELECT * from bibliotheque where ELEVE = :id");
+    query.bindValue(":id", id);
+    query.exec();
+
+    return query;
 }

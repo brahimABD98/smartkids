@@ -94,7 +94,6 @@ void gestiono9::on_pushButton_clicked() //ajout
     QSqlQuery query;
     QVector <int> tab;
     int i;
-    int aux;
         int id=-1;
 
         if(query.exec("select idd from  deponse"))
@@ -209,7 +208,7 @@ void gestiono9::on_pushButton_6_clicked() //supp
         }
 }
 
-void gestiono9::on_lineEdit_textChanged(const QString &arg1) //recherche
+void gestiono9::on_lineEdit_textChanged() //recherche
 {
     QString id = ui->lineEdit->text();
 
@@ -231,7 +230,7 @@ void gestiono9::on_pushButton_7_clicked() //trier
 }
 
 
-void gestiono9::on_lineEdit_28_textChanged(const QString &arg1)
+void gestiono9::on_lineEdit_28_textChanged()
 {
    // int id=ui->lineEdit_28->text().toInt();
      QString id=ui->lineEdit_28->text();
@@ -399,7 +398,7 @@ void gestiono9::on_pushButton_36_clicked()
     QSqlQuery query;
     QVector <int> tab;
     int i;
-    int aux;
+
         int id=-1;
 
         if(query.exec("select idd from  revenu"))
@@ -516,7 +515,7 @@ void gestiono9::on_pushButton_41_clicked()
 
 
 
-void gestiono9::on_lineEdit_2_textChanged(const QString &arg1)
+void gestiono9::on_lineEdit_2_textChanged()
 {
     QString id = ui->lineEdit_2->text();
 

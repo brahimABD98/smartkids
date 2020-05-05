@@ -2,6 +2,7 @@
 #define GESTION_EMPLOYE_H
 #include "staff_technique.h"
 #include "instituteur.h"
+#include "compte.h"
 #include <QDialog>
 
 namespace Ui {
@@ -28,9 +29,9 @@ private slots:
 
     void on_pushButton_24_clicked();
 
-    void on_pushButton_16_clicked();
+    void on_pushButton_29_clicked();
 
-    void on_pushButton_26_clicked();
+    void on_pushButton_28_clicked();
 
 
      void on_pushButton_ajtinst_2_clicked();
@@ -53,10 +54,22 @@ private slots:
 
       void on_pushButton_eleves_2_clicked();
 
+      void on_pushButton_9_clicked();
+
+      void on_pushButton_26_clicked();
+
+      void on_pushButton_30_clicked();
+
+      void on_pushButton_31_clicked();
+      void on_pushButton_ajtcomp_clicked();
+      void on_pushButton_modcomp_clicked();
+      void on_pushButton_sup_5_clicked();
+
 private:
     Ui::gestion_employe *ui;
     staff_technique tmpstaff_technique;
     instituteur tmpinstituteur;
+    compte tmpcompte;
 };
 
 #endif // GESTION_EMPLOYE_H

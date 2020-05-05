@@ -22,6 +22,7 @@ class reclamation
         QSqlQueryModel * afficher();
        QSqlQuery rechercher_id(int id);
        QSqlQuery rechercher_salle(int salle);
+       QSqlQueryModel *  trier(const QString &critere, const QString &mode );
 
         int Getid_reclamation() { return id_reclamation; }
         void Setid_reclamation(int val) { id_reclamation = val; }

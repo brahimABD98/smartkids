@@ -6,6 +6,7 @@
 #include <QPrinter>
 #include <QPrintDialog>
 #include "stock.h"
+#include "bibliotheque.h"
 #include "gestion_activite.h"
 #include "gestion_employe.h"
 #include "charrad/gestiono9.h"
@@ -802,8 +803,9 @@ void Gestion::on_tableView_S_doubleClicked(const QModelIndex &index)
                 if (query.seek(i)) {
                  npr= query.value(1).toString();
                  qu= query.value(2).toString();
+                 aux=aux+qu+":"+npr+"\n";
                 }
-                aux=aux+qu+":"+npr+"\n";
+
                 i++;
 
 
@@ -811,6 +813,44 @@ void Gestion::on_tableView_S_doubleClicked(const QModelIndex &index)
 
                 QMessageBox::information(nullptr, QObject::tr("Salle"),
                                   QObject::tr("La salle est equipe de :\n%1") .arg(aux), QMessageBox::Cancel);
+
+            }
+}
+
+void Gestion::on_tableView_E_doubleClicked(const QModelIndex &index)
+{
+    if ((index.isValid()) && (index.column() == 0)  ) {
+
+                int i=0;
+
+                QString npr;
+                QString qu;
+                QString aux;
+                int id = index.data().toInt();
+                int rows = 0;
+                QSqlQuery query("SELECT COUNT(*) FROM bibliotheque ");
+                if (query.next()) {
+                    rows = query.value(0).toInt();
+                }
+
+
+
+                do{
+
+                 QSqlQuery query=tmpbibliotheque.rechercher_eleve(id);
+                if (query.seek(i)) {
+                 npr= query.value(1).toString();
+                 qu= query.value(2).toString();
+                 aux=aux+qu+" de "+npr+"\n";
+                }
+
+                i++;
+
+
+                }while(i<rows);
+
+                QMessageBox::information(nullptr, QObject::tr("Eleve"),
+                                  QObject::tr("l'eleve %2 a emprunter de la bibliotheque:\n%1") .arg(aux).arg(id) , QMessageBox::Cancel);
 
             }
 }
