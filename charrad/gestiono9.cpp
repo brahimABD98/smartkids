@@ -24,6 +24,7 @@ gestiono9::gestiono9(QWidget *parent) :
     notifyicon->setIcon(QIcon(":/icon/Notification.jpg"));
      ui->tableView->setModel(d0.afficher());
      ui->tableView_2->setModel(r0.afficher());
+     ui->stackedWidget_2->setCurrentIndex(0);
 
 }
 
@@ -232,36 +233,50 @@ void gestiono9::on_pushButton_7_clicked() //trier
 
 void gestiono9::on_lineEdit_28_textChanged(const QString &arg1)
 {
-    int id=ui->lineEdit_28->text().toInt();
+   // int id=ui->lineEdit_28->text().toInt();
+     QString id=ui->lineEdit_28->text();
+     deponse dx;
+     dx.rechercher_id(id);
 
-            QSqlQuery query=d0.rechercher_id(id);
-            QString type,date;
-            int montant;
+         //   QSqlQuery query=d0.rechercher_id(id);
+           // QString type,date;
+            //int montant;
 
 
-                 if (query.next())
+
+               // montant= query.value(1).toInt();
+                ui->lineEdit_27->setText(QString::number(dx.get_montant()));
+              //  type= query.value(2).toString();
+                if(dx.get_type() =="stock")
                 {
-                montant= query.value(1).toInt();
-                ui->lineEdit_27->setText(QString::number(montant));
-                type= query.value(2).toString();
-                if(type =="stock")
-                {
-                    ui->radioButton_6->isChecked();
+                   // ui->radioButton_6->isChecked();
+                    ui->radioButton_6->setChecked(true);
+                    ui->radioButton_4->setChecked(false);
+                    ui->radioButton_5->setChecked(false);
                 }
 
-                else if(type =="autres")
+                else if(dx.get_type() =="autres")
                 {
 
-                            ui->radioButton_4->isChecked();
+                           // ui->radioButton_4->isChecked();
+                    ui->radioButton_4->setChecked(true);
+                    ui->radioButton_5->setChecked(false);
+                    ui->radioButton_6->setChecked(false);
+
                 }
                 else
                 {
-                    ui->radioButton_5->isChecked();
+                   // ui->radioButton_5->isChecked();
+                    ui->radioButton_5->setChecked(true);
+                    ui->radioButton_4->setChecked(false);
+                    ui->radioButton_6->setChecked(false);
 
                 }
+                ui->dateEdit_3->setDate(dx.datearbi);
+                qDebug()<<dx.datearbi;
 
 
-                 }else{ui->lineEdit_28->clear();}
+                // else{ui->lineEdit_28->clear();}
 }
 
 void gestiono9::on_pushButton_9_clicked()
@@ -674,4 +689,46 @@ void gestiono9::on_pushButton_12_clicked()
     hide();
        stock s;
        s.exec();
+}
+
+void gestiono9::on_lineEdit_35_textChanged(const QString &arg1)
+{
+    QString id=ui->lineEdit_28->text();
+    deponse dx;
+    dx.rechercher_id(id);
+
+        //   QSqlQuery query=d0.rechercher_id(id);
+          // QString type,date;
+           //int montant;
+
+
+
+              // montant= query.value(1).toInt();
+               ui->lineEdit_36->setText(QString::number(dx.get_montant()));
+             //  type= query.value(2).toString();
+               if(dx.get_type() =="stock")
+               {
+                  // ui->radioButton_6->isChecked();
+                   ui->radioButton_28->setChecked(true);
+                   //ui->radioButton_4->setChecked(false);
+
+               }
+
+
+               else
+               {
+                  // ui->radioButton_5->isChecked();
+                   ui->radioButton_27->setChecked(true);
+
+
+               }
+               //ui->dateEdit_3->setDate(dx.datearbi);
+               qDebug()<<dx.datearbi;
+}
+
+void gestiono9::on_pushButton_26_charrad_stat_clicked()
+{
+
+    ui->stackedWidget_2->setCurrentIndex(2);
+    ui->tableView_charrad_stat->setModel(s0.____());
 }

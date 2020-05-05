@@ -20,9 +20,22 @@ QString deponse::get_type(){return  type;}
 QString deponse::get_date(){return date;}
 int deponse::get_id(){return  id;}
 double deponse::get_montant(){return montant;}
-
-
-
+void deponse::setType(QString type)
+{
+    this->type=type;
+}
+void deponse::setDate(QString date)
+{
+    this->date=date;
+}
+void deponse::setMontant(double montant)
+{
+    this->montant=montant;
+}
+void deponse::setId(int id)
+{
+    this->id=id;
+}
 bool deponse::ajouter()
 {
 QSqlQuery query;
@@ -104,12 +117,28 @@ model->setHeaderData(3, Qt::Horizontal, QObject::tr("date"));
     return model;
 }
 
-QSqlQuery deponse::rechercher_id(int id)
+void deponse::rechercher_id(QString id)
 {
-    QSqlQuery query;
+    /*QSqlQuery query;
     query.prepare("SELECT * from deponse where IDD = :id");
     query.bindValue(":id", id);
     query.exec();
 
-    return query;
+    return query;*/
+    QSqlQuery query;
+    if(query.exec("select idd,typ,montant,dat from deponse where idd ='"+id+"'"))
+    {
+
+        while(query.next())
+        {
+
+            this->setId(query.value(0).toInt());
+            this->setType(query.value(1).toString());
+            this->setMontant(query.value(2).toDouble());
+            this->setDate(query.value(3).toString());
+            //this->dat=query.value(3).toDate();
+
+        }
+    }
 }
+

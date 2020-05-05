@@ -6,16 +6,16 @@
 class statistique
 {
 public:
+    int id;
+    int deponse;
+    int revenu;
+    QString date;
+    int diff;
     statistique();
-    statistique(int,int,int);
-        int get_moi();
-        int get_montantd();
-        int get_montantr();
-        QSqlQueryModel * afficher();
-    private:
-        int montantd ;
-        int montantr;
-        int moi;
+    statistique(int, int, int, QString, int);
+
+    QSqlQueryModel *  ____();
+
 };
 
 #endif // STATISTIQUE_H

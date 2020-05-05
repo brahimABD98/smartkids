@@ -6,6 +6,7 @@
 #include "revenu.h"
 #include <QMessageBox>
 #include "QSystemTrayIcon"
+#include "statistique.h"
 
 namespace Ui {
 class gestiono9;
@@ -73,7 +74,7 @@ private slots:
 
     void on_pushButton_15_clicked();
 
-
+    void on_pushButton_eleves_2_clicked();
 
     void on_pushButton_16_clicked();
 
@@ -84,11 +85,18 @@ private slots:
 
     void on_pushButton_12_clicked();
 
+    void on_lineEdit_35_textChanged(const QString &arg1);
+
+    void on_pushButton_26_clicked();
+
+    void on_pushButton_26_charrad_stat_clicked();
+
 private:
     Ui::gestiono9 *ui;
     deponse d0;
     revenu r0;
     QSystemTrayIcon *notifyicon;
+    statistique s0;
 };
 
 #endif // GESTIONO9_H

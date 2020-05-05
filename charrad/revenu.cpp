@@ -20,7 +20,22 @@ QString revenu::get_type(){return  type;}
 QString revenu::get_date(){return date;}
 int revenu::get_id(){return  id;}
 double revenu::get_montant(){return montant;}
-
+void revenu::setType(QString type)
+{
+    this->type=type;
+}
+void revenu::setDate(QString date)
+{
+    this->date=date;
+}
+void revenu::setMontant(double montant)
+{
+    this->montant=montant;
+}
+void revenu::setId(int id)
+{
+    this->id=id;
+}
 
 
 bool revenu::ajouter()
@@ -92,4 +107,29 @@ model->setHeaderData(1, Qt::Horizontal, QObject::tr("type "));
 model->setHeaderData(2, Qt::Horizontal, QObject::tr("montant"));
 model->setHeaderData(3, Qt::Horizontal, QObject::tr("date"));
     return model;
+}
+
+void revenu::rechercher_id(QString id)
+{
+    /*QSqlQuery query;
+    query.prepare("SELECT * from deponse where IDD = :id");
+    query.bindValue(":id", id);
+    query.exec();
+
+    return query;*/
+    QSqlQuery query;
+    if(query.exec("select idd,typ,montant,dat from revenu where idd ='"+id+"'"))
+    {
+
+        while(query.next())
+        {
+
+            this->setId(query.value(0).toInt());
+            this->setType(query.value(1).toString());
+            this->setMontant(query.value(2).toDouble());
+            this->setDate(query.value(3).toString());
+           // this->date=query.value(3).toDate();
+
+        }
+    }
 }
