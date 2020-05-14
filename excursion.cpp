@@ -5,13 +5,13 @@ Excursion::Excursion()
 {
     id=0;
     destination="";
-    responsable="";
+    responsable=0;
     date="";
     prix=0;
 }
 
 
-Excursion::Excursion(int id,QString destination,QString responsable,QString date,int prix)
+Excursion::Excursion(int id,QString destination,int responsable,QString date,int prix)
 {
   this->id=id;
   this->destination=destination;
@@ -22,7 +22,7 @@ Excursion::Excursion(int id,QString destination,QString responsable,QString date
 
 
 QString Excursion::get_destination(){return  destination;}
-QString Excursion::get_responsable(){return responsable;}
+int Excursion::get_responsable(){return responsable;}
 QString Excursion::get_date(){return  date;}
 int Excursion::get_id(){return  id;}
 int Excursion::get_prix(){return  prix;}
@@ -66,7 +66,7 @@ return    query.exec();
 }
 
 
-bool Excursion::modifier_excursion(int id,QString destination,QString responsable,QString date,int prix)
+bool Excursion::modifier_excursion(int id,QString destination,int responsable,QString date,int prix)
 {
 
     QSqlQuery qry;
@@ -129,5 +129,13 @@ QSqlQueryModel* Excursion::trie(int index)
     model->setHeaderData(2, Qt::Horizontal, QObject::tr("Responsable"));
     model->setHeaderData(3, Qt::Horizontal, QObject::tr("Date"));
     model->setHeaderData(4, Qt::Horizontal, QObject::tr("Prix"));
+    return model;
+}
+
+
+QSqlQueryModel * Excursion::afficher_responsable(){
+    QSqlQueryModel * model= new QSqlQueryModel();
+    model->setQuery("select ID from instituteur");
+    model->setHeaderData(0, Qt::Horizontal, QObject::tr("responsable"));
     return model;
 }

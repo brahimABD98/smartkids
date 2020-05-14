@@ -27,7 +27,12 @@ gestion_activite::gestion_activite(QWidget *parent) :
     ui->checkBox_2->setChecked(true);
     ui->comboBox_eleve_livre->setModel(tmplivre.afficher_eleve());
     ui->comboBox_modif_eleve_livre->setModel(tmplivre.afficher_eleve());
-
+    ui->comboBox_ajout_salle_club->setModel(tmpclub.afficher_salle());
+    ui->comboBox_modif_salle_club->setModel(tmpclub.afficher_salle());
+    ui->comboBox_ajout_res_exc->setModel(tmpexcursion.afficher_responsable());
+    ui->comboBox_modif_res_exc->setModel(tmpexcursion.afficher_responsable());
+    ui->comboBox_ajout_res_c->setModel(tmpclub.afficher_responsable());
+    ui->comboBox_modif_res_c->setModel(tmpclub.afficher_responsable());
 
 }
 
@@ -80,9 +85,9 @@ void gestion_activite::on_pushButton_ajout_club_clicked()
 {
     int id = ui->lineEdit_ajout_id_c->text().toInt();
     QString nom= ui->lineEdit_ajout_nom_c->text();
-    QString responsable= ui->lineEdit_ajout_res_c->text();
+    int responsable= ui->comboBox_ajout_res_c->currentText().toInt();
     QString jour= ui->comboBox_ajout_dateclub->currentText();
-    int salle = ui->lineEdit_ajout_salle_c->text().toInt();
+    int salle = ui->comboBox_ajout_salle_club->currentText().toInt();
   Club c(id,nom,responsable,jour,salle);
   bool test=c.ajouter_club();
   if(test)
@@ -102,7 +107,7 @@ void gestion_activite::on_pushButton_ajout_exc_clicked()
 {
     int id = ui->lineEdit_ajout_id_exc->text().toInt();
     QString destination= ui->lineEdit_ajout_dest_exc->text();
-    QString responsable= ui->lineEdit_ajout_res_exc->text();
+    int responsable= ui->comboBox_ajout_res_exc->currentText().toInt();
     QString date= ui->dateEdit_excu_ajout->date().toString();
     int prix = ui->lineEdit_ajout_prix_exc->text().toInt();
   Excursion e(id,destination,responsable,date,prix);
@@ -135,11 +140,11 @@ void gestion_activite::on_lineEdit_modif_id_c_textChanged()
         nom_c= query.value(1).toString();
         ui->lineEdit_modif_nom_c->setText(nom_c);
         responsable_c= query.value(2).toString();
-        ui->lineEdit_modif_res_c->setText(responsable_c);
+        ui->comboBox_modif_res_c->setCurrentText(responsable_c);
         jour_c= query.value(3).toString();
         ui->lineEdit_modif_jour_c->setText(jour_c);
         salle_c= query.value(4).toString();
-        ui->lineEdit_modif_salle_c->setText(salle_c);
+        ui->comboBox_modif_salle_club->setCurrentText(salle_c);
 
 
         }
@@ -148,9 +153,9 @@ void gestion_activite::on_lineEdit_modif_id_c_textChanged()
 void gestion_activite::on_pushButton_modif_club_clicked()
 {
     QString nom= ui->lineEdit_modif_nom_c->text();
-    QString responsable= ui->lineEdit_modif_res_c->text();
+    int responsable= ui->comboBox_modif_res_c->currentText().toInt();
     QString jour= ui->lineEdit_modif_jour_c->text();
-    int salle = ui->lineEdit_modif_salle_c->text().toInt();
+    int salle = ui->comboBox_modif_salle_club->currentText().toInt();
 
     bool test =tmpclub.modifier_club(ui->lineEdit_modif_id_c->text().toInt(),ui->lineEdit_modif_nom_c->text()
                 ,responsable,jour,salle);
@@ -184,7 +189,7 @@ void gestion_activite::on_lineEdit_modif_id_exc_textChanged()
         destination_e= query.value(1).toString();
         ui->lineEdit_modif_dest_exc->setText(destination_e);
         responsable_e= query.value(2).toString();
-        ui->lineEdit_modif_res_exc->setText(responsable_e);
+        ui->comboBox_modif_res_exc->setCurrentText(responsable_e);
         date_e= query.value(3).toString();
         ui->lineEdit_modif_date_exc->setText(date_e);
         prix_e= query.value(4).toString();
@@ -196,7 +201,7 @@ void gestion_activite::on_lineEdit_modif_id_exc_textChanged()
 void gestion_activite::on_pushButton_modif_exc_clicked()
 {
     QString destination= ui->lineEdit_modif_dest_exc->text();
-    QString responsable= ui->lineEdit_modif_res_exc->text();
+    int responsable= ui->comboBox_modif_res_exc->currentText().toInt();
     QString date= ui->lineEdit_modif_date_exc->text();
     int prix = ui->lineEdit_modif_prix_exc->text().toInt();
 
@@ -466,6 +471,25 @@ void gestion_activite::on_table_club_doubleClicked(const QModelIndex &index)
                           QObject::tr(" Type : %1 \n Nbr de places: %2 ") .arg(type).arg(nbr), QMessageBox::Cancel);
 
     }
+
+    else if ((index.isValid()) && (index.column() == 2)  ) {
+
+        QString nom;
+        QString prenom;
+        int id = index.data().toInt();
+        if (!(id==0)){
+        QSqlQuery query=tmpinstituteur.rechercher_id(id);
+        if (query.next()) {
+        nom= query.value(1).toString();
+        prenom= query.value(2).toString();
+        }
+
+
+        QMessageBox::information(nullptr, QObject::tr("Responsable"),
+                          QObject::tr(" Nom : %1 \n N° Prénom: %2 ") .arg(nom).arg(prenom), QMessageBox::Cancel);
+
+       }
+       }
 }
 
 void gestion_activite::on_pushButton_eleves_4_clicked()
@@ -715,4 +739,26 @@ void gestion_activite::on_pushButton_tri_asc_clicked()
 void gestion_activite::on_pushButton_tri_desc_clicked()
 {
     ui->table_excursion->setModel(tmpexcursion.trie(1));
+}
+
+void gestion_activite::on_table_excursion_doubleClicked(const QModelIndex &index)
+{
+    if ((index.isValid()) && (index.column() == 2)  ) {
+
+        QString nom;
+        QString prenom;
+        int id = index.data().toInt();
+        if (!(id==0)){
+        QSqlQuery query=tmpinstituteur.rechercher_id(id);
+        if (query.next()) {
+        nom= query.value(1).toString();
+        prenom= query.value(2).toString();
+        }
+
+
+        QMessageBox::information(nullptr, QObject::tr("Responsable"),
+                          QObject::tr(" Nom : %1 \n N° Prénom: %2 ") .arg(nom).arg(prenom), QMessageBox::Cancel);
+
+       }
+       }
 }

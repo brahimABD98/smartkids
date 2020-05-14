@@ -5,13 +5,13 @@ Club::Club()
 {
     id=0;
     nom="";
-    responsable="";
+    responsable=0;
     jour="";
     salle=0;
 }
 
 
-Club::Club(int id,QString nom,QString responsable,QString jour,int salle)
+Club::Club(int id,QString nom,int responsable,QString jour,int salle)
 {
   this->id=id;
   this->nom=nom;
@@ -22,7 +22,7 @@ Club::Club(int id,QString nom,QString responsable,QString jour,int salle)
 
 
 QString Club::get_nom(){return  nom;}
-QString Club::get_responsable(){return responsable;}
+int Club::get_responsable(){return responsable;}
 QString Club::get_jour(){return  jour;}
 int Club::get_id(){return  id;}
 int Club::get_salle(){return  salle;}
@@ -65,7 +65,7 @@ query.bindValue(":id", res);
 return    query.exec();
 }
 
-bool Club::modifier_club(int id,QString nom,QString responsable,QString jour,int salle)
+bool Club::modifier_club(int id,QString nom,int responsable,QString jour,int salle)
 {
 
     QSqlQuery qry;
@@ -105,5 +105,20 @@ QSqlQueryModel * Club::rechercher_club (const QString &aux)
     model->setHeaderData(3, Qt::Horizontal, QObject::tr("Jour"));
     model->setHeaderData(4, Qt::Horizontal, QObject::tr("Salle"));
 
+    return model;
+}
+
+
+QSqlQueryModel * Club::afficher_salle(){
+    QSqlQueryModel * model= new QSqlQueryModel();
+    model->setQuery("select NUMS from salles");
+    model->setHeaderData(0, Qt::Horizontal, QObject::tr("salle"));
+    return model;
+}
+
+QSqlQueryModel * Club::afficher_responsable(){
+    QSqlQueryModel * model= new QSqlQueryModel();
+    model->setQuery("select ID from instituteur");
+    model->setHeaderData(0, Qt::Horizontal, QObject::tr("responsable"));
     return model;
 }
