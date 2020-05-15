@@ -176,7 +176,7 @@ border-image: url(:/new/prefix1/icon/stock.png);</string>
     </rect>
    </property>
    <property name="currentIndex">
-    <number>1</number>
+    <number>0</number>
    </property>
    <widget class="QWidget" name="page_6">
     <widget class="QTableView" name="table_club">
@@ -187,6 +187,9 @@ border-image: url(:/new/prefix1/icon/stock.png);</string>
        <width>581</width>
        <height>341</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(171, 152, 203);</string>
      </property>
      <attribute name="horizontalHeaderCascadingSectionResizes">
       <bool>true</bool>
@@ -387,7 +390,7 @@ border : 1px solid;
 ;}</string>
      </property>
      <property name="currentIndex">
-      <number>0</number>
+      <number>1</number>
      </property>
      <widget class="QWidget" name="page">
       <widget class="QLabel" name="label_3">
@@ -429,22 +432,6 @@ background-color: rgb(171, 152, 203);</string>
         <rect>
          <x>100</x>
          <y>100</y>
-         <width>151</width>
-         <height>20</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">border-color: rgb(255, 255, 255);
-
-border-radius: 10px;
-background-color: rgb(171, 152, 203);</string>
-       </property>
-      </widget>
-      <widget class="QLineEdit" name="lineEdit_ajout_salle_c">
-       <property name="geometry">
-        <rect>
-         <x>100</x>
-         <y>270</y>
          <width>151</width>
          <height>20</height>
         </rect>
@@ -526,22 +513,6 @@ background-color: rgb(171, 152, 203);</string>
         </property>
        </widget>
       </widget>
-      <widget class="QLineEdit" name="lineEdit_ajout_res_c">
-       <property name="geometry">
-        <rect>
-         <x>100</x>
-         <y>160</y>
-         <width>151</width>
-         <height>20</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">border-color: rgb(255, 255, 255);
-
-border-radius: 10px;
-background-color: rgb(171, 152, 203);</string>
-       </property>
-      </widget>
       <widget class="QComboBox" name="comboBox_ajout_dateclub">
        <property name="geometry">
         <rect>
@@ -588,13 +559,27 @@ background-color: rgb(171, 152, 203);</string>
         </property>
        </item>
       </widget>
-     </widget>
-     <widget class="QWidget" name="page_2">
-      <widget class="QLineEdit" name="lineEdit_modif_res_c">
+      <widget class="QComboBox" name="comboBox_ajout_salle_club">
        <property name="geometry">
         <rect>
          <x>100</x>
-         <y>150</y>
+         <y>270</y>
+         <width>69</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border-color: rgb(255, 255, 255);
+
+border-radius: 10px;
+background-color: rgb(171, 152, 203);</string>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="comboBox_ajout_res_c">
+       <property name="geometry">
+        <rect>
+         <x>100</x>
+         <y>160</y>
          <width>151</width>
          <height>20</height>
         </rect>
@@ -606,6 +591,8 @@ border-radius: 10px;
 background-color: rgb(171, 152, 203);</string>
        </property>
       </widget>
+     </widget>
+     <widget class="QWidget" name="page_2">
       <widget class="QLabel" name="label_5">
        <property name="geometry">
         <rect>
@@ -629,22 +616,6 @@ font-weight:bold;</string>
         <rect>
          <x>100</x>
          <y>50</y>
-         <width>151</width>
-         <height>20</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">border-color: rgb(255, 255, 255);
-
-border-radius: 10px;
-background-color: rgb(171, 152, 203);</string>
-       </property>
-      </widget>
-      <widget class="QLineEdit" name="lineEdit_modif_salle_c">
-       <property name="geometry">
-        <rect>
-         <x>100</x>
-         <y>240</y>
          <width>151</width>
          <height>20</height>
         </rect>
@@ -785,6 +756,38 @@ background-color: rgb(171, 152, 203);</string>
         <string>Salle</string>
        </property>
       </widget>
+      <widget class="QComboBox" name="comboBox_modif_salle_club">
+       <property name="geometry">
+        <rect>
+         <x>100</x>
+         <y>240</y>
+         <width>69</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border-color: rgb(255, 255, 255);
+
+border-radius: 10px;
+background-color: rgb(171, 152, 203);</string>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="comboBox_modif_res_c">
+       <property name="geometry">
+        <rect>
+         <x>100</x>
+         <y>150</y>
+         <width>151</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border-color: rgb(255, 255, 255);
+
+border-radius: 10px;
+background-color: rgb(171, 152, 203);</string>
+       </property>
+      </widget>
      </widget>
      <widget class="QWidget" name="page_5">
       <widget class="QLabel" name="label_6">
@@ -878,6 +881,9 @@ background-color: rgb(171, 152, 203);</string>
        <width>581</width>
        <height>341</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(171, 152, 203);</string>
      </property>
      <attribute name="horizontalHeaderDefaultSectionSize">
       <number>115</number>
@@ -1188,22 +1194,6 @@ background-color: rgb(171, 152, 203);</string>
         </property>
        </widget>
       </widget>
-      <widget class="QLineEdit" name="lineEdit_ajout_res_exc">
-       <property name="geometry">
-        <rect>
-         <x>101</x>
-         <y>143</y>
-         <width>151</width>
-         <height>20</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">border-color: rgb(255, 255, 255);
-
-border-radius: 10px;
-background-color: rgb(171, 152, 203);</string>
-       </property>
-      </widget>
       <widget class="QLabel" name="label_46">
        <property name="geometry">
         <rect>
@@ -1251,6 +1241,22 @@ background-color: rgb(171, 152, 203);</string>
         <rect>
          <x>100</x>
          <y>240</y>
+         <width>151</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">border-color: rgb(255, 255, 255);
+
+border-radius: 10px;
+background-color: rgb(171, 152, 203);</string>
+       </property>
+      </widget>
+      <widget class="QComboBox" name="comboBox_ajout_res_exc">
+       <property name="geometry">
+        <rect>
+         <x>100</x>
+         <y>140</y>
          <width>151</width>
          <height>20</height>
         </rect>
@@ -1427,11 +1433,11 @@ border-radius: 10px;
 background-color: rgb(171, 152, 203);</string>
        </property>
       </widget>
-      <widget class="QLineEdit" name="lineEdit_modif_res_exc">
+      <widget class="QLineEdit" name="lineEdit_modif_date_exc">
        <property name="geometry">
         <rect>
          <x>100</x>
-         <y>160</y>
+         <y>210</y>
          <width>151</width>
          <height>20</height>
         </rect>
@@ -1443,11 +1449,11 @@ border-radius: 10px;
 background-color: rgb(171, 152, 203);</string>
        </property>
       </widget>
-      <widget class="QLineEdit" name="lineEdit_modif_date_exc">
+      <widget class="QComboBox" name="comboBox_modif_res_exc">
        <property name="geometry">
         <rect>
          <x>100</x>
-         <y>210</y>
+         <y>160</y>
          <width>151</width>
          <height>20</height>
         </rect>
@@ -1655,7 +1661,7 @@ border : 1px solid;
 ;}</string>
      </property>
      <property name="currentIndex">
-      <number>1</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="page_14">
       <widget class="QLabel" name="label_25">
@@ -2348,6 +2354,9 @@ border-image: url(:/new/prefix1/icon/exporter.png);</string>
        <width>581</width>
        <height>341</height>
       </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(171, 152, 203);</string>
      </property>
      <attribute name="horizontalHeaderDefaultSectionSize">
       <number>115</number>

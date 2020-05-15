@@ -8,6 +8,7 @@
 #include "salles.h"
 #include "bibliotheque.h"
 #include "eleves.h"
+#include "instituteur.h"
 
 #include <QDialog>
 
@@ -98,6 +99,8 @@ private slots:
 
     void on_pushButton_tri_desc_clicked();
 
+    void on_table_excursion_doubleClicked(const QModelIndex &index);
+
 private:
     Ui::gestion_activite *ui;
     Excursion tmpexcursion;
@@ -105,6 +108,7 @@ private:
     salles tmpsalles;
     Bibliotheque tmplivre;
     eleves tmpeleves;
+    instituteur tmpinstituteur;
 };
 
 #endif // GESTION_H

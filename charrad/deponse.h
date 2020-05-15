@@ -3,6 +3,7 @@
 #include <QString>
 #include <QSqlQueryModel>
 #include <QSqlQuery>
+#include <QDate>
 class deponse
 {
 public:
@@ -18,12 +19,20 @@ public:
     bool supprimer(int);
     void modifier(int);
     QSqlQueryModel * afficherTrier();
-    QSqlQuery rechercher_id(int id);
+    void rechercher_id(QString id);
+    void setType(QString type);
+    void setDate(QString date);
+    void setMontant(double montant);
+    void setId(int id);
+
+QDate datearbi;
+
 
 private:
     QString type,date;
     int id;
     double montant;
+   // QDate datearbi;
 };
 
 #endif // DEPONSE_H
