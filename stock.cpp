@@ -1058,3 +1058,4 @@ void stock::on_pushButton_pdf_rec_clicked()
     printer.setOutputFileName("reclamation.pdf");
     document->print(&printer);
 }
+

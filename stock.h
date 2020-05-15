@@ -126,6 +126,8 @@ private slots:
 
     void on_pushButton_pdf_rec_clicked();
 
+
+
 private:
     Ui::stock *ui;
     aliments tmpaliment;

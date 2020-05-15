@@ -20,6 +20,7 @@ gestion_employe::gestion_employe(QWidget *parent) :
     ui(new Ui::gestion_employe)
 {
     ui->setupUi(this);
+
 }
 
 gestion_employe::~gestion_employe()
@@ -331,7 +332,7 @@ void gestion_employe::on_lineEdit_44_textChanged()
 
 void gestion_employe::on_pushButton_ajtcomp_clicked()
 {
-    int id = ui->lineEdit_52->text().toUInt();
+     int id = ui->lineEdit_4->text().toUInt();
     QString username= ui->lineEdit_53->text();
     int password= ui->lineEdit_54->text().toUInt();
 

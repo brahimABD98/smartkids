@@ -22,7 +22,7 @@ public:
      int get_exprience();
      QString get_niveau();
     bool ajouter();
-
+QSqlQueryModel * afficherinstituteur ();
 
      QSqlQueryModel * afficher();
  bool supprimer(int);
