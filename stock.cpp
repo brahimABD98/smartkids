@@ -409,13 +409,13 @@ void stock::on_pushButton_supp_equip_clicked()
 
 void stock::on_pushButton_exporter_equip_clicked()
 {
-    ui->stackedWidget_crud_equipement->setCurrentIndex(3);
+    ui->stackedWidget_crud_equipement->setCurrentIndex(4);
 
 }
 
 void stock::on_pushButton_tri_equipement_clicked()
 {
-    ui->stackedWidget_crud_equipement->setCurrentIndex(4);
+    ui->stackedWidget_crud_equipement->setCurrentIndex(5);
 
 }
 
