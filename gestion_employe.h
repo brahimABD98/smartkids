@@ -3,6 +3,8 @@
 #include "staff_technique.h"
 #include "instituteur.h"
 #include "compte.h"
+#include "salles.h"
+#include "equipement.h"
 #include <QDialog>
 
 namespace Ui {
@@ -64,12 +66,15 @@ private slots:
       void on_pushButton_ajtcomp_clicked();
       void on_pushButton_modcomp_clicked();
       void on_pushButton_sup_5_clicked();
-
+ void on_tableView_doubleClicked(const QModelIndex &index);
+ void on_tablestaff_technique_doubleClicked(const QModelIndex &index);
 private:
     Ui::gestion_employe *ui;
     staff_technique tmpstaff_technique;
     instituteur tmpinstituteur;
     compte tmpcompte;
+    salles   tmpsalles;
+    equipement tmpequipement;
 };
 
 #endif // GESTION_EMPLOYE_H

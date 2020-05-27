@@ -2,6 +2,7 @@
 #include "ui_gestion_employe.h"
 #include "staff_technique.h"
 #include "instituteur.h"
+#include "salles.h"
 #include "compte.h"
 #include <QMessageBox>
 #include <QSqlQueryModel>
@@ -14,7 +15,8 @@
 #include <QString>
 #include "charrad/gestiono9.h"
 #include "gestion.h"
-
+#include "equipement.h"
+#include "aliment.h"
 gestion_employe::gestion_employe(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::gestion_employe)
@@ -207,7 +209,27 @@ void gestion_employe::on_pushButton_modi_ins_clicked()
 
             }
     }
+    void gestion_employe::on_tableView_doubleClicked(const QModelIndex &index)
+    {
+        if ((index.isValid()) && (index.column() == 0)  ) {
 
+            QString type;
+            QString nbr;
+            QString num;
+            int id = index.data().toInt();
+            QSqlQuery query=tmpsalles.rechercher_num(id);
+            if (query.next()) {
+            num=query.value(0).toString();
+            type= query.value(1).toString();
+            nbr= query.value(2).toString();
+            }
+
+
+            QMessageBox::information(nullptr, QObject::tr("Salle"),
+                              QObject::tr(" Numero de la salle : %0 \n Type : %1 \n Nbr de places: %3 ").arg(num) .arg(type).arg(nbr), QMessageBox::Cancel);
+
+        }
+     }
 /*------------------------------------------------------------------------*/
 
 
@@ -325,6 +347,27 @@ void gestion_employe::on_lineEdit_44_textChanged()
         }
 }
 
+void gestion_employe::on_tablestaff_technique_doubleClicked(const QModelIndex &index)
+{
+    if ((index.isValid()) && (index.column() == 0)  ) {
+
+        QString nom;
+        QString qt;
+
+        int id = index.data().toInt();
+        QSqlQuery query=tmpequipement.rechercher_num(id);
+        if (query.next()) {
+
+        nom= query.value(1).toString();
+        qt= query.value(2).toString();
+        }
+
+
+        QMessageBox::information(nullptr, QObject::tr("equipement"),
+                          QObject::tr(" Nom de produit : %1 \n Quantite : %2  ") .arg(nom) .arg(qt), QMessageBox::Cancel);
+
+    }
+ }
 
 /*------------------------------------------------------------------------*/
 

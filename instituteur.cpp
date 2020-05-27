@@ -136,3 +136,9 @@ QSqlQuery instituteur::rechercher_id(int id)
 
     return query;
 }
+QSqlQueryModel * instituteur::afficher_salle(){
+    QSqlQueryModel * model= new QSqlQueryModel();
+    model->setQuery("select NUMS from salles");
+    model->setHeaderData(0, Qt::Horizontal, QObject::tr("salle"));
+    return model;
+}

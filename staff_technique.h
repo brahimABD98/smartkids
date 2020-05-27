@@ -28,6 +28,7 @@ bool modifier(int,QString,QString,float,QString);
  QSqlQueryModel * rechercher (const QString &aux);
 QSqlQueryModel* trie(int index);
 QSqlQuery rechercher_id(int id);
+QSqlQuery rechercher_num(int id);
 
 private:
 

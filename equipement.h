@@ -38,7 +38,7 @@ class equipement
         void Setprix_unitaire(double val) { prix_unitaire = val; }
         double Getprix_totale() { return prix_totale; }
         void Setprix_totale(double val) { prix_totale = val; }
-
+         QSqlQuery rechercher_num(int id);
     protected:
 
     private:

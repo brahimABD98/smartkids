@@ -138,3 +138,12 @@ QSqlQueryModel * equipement::affichersalle ()
     model->setHeaderData(0, Qt::Horizontal, QObject::tr("NUMS"));
     return model;
 }
+QSqlQuery equipement::rechercher_num(int id)
+{
+    QSqlQuery query;
+    query.prepare("SELECT * from equipement where id = :id");
+    query.bindValue(":id", id);
+    query.exec();
+
+    return query;
+}

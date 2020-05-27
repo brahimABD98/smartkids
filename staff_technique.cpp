@@ -143,3 +143,12 @@ QSqlQuery staff_technique::rechercher_id(int id)
 
     return query;
 }
+QSqlQuery staff_technique::rechercher_num(int id)
+{
+    QSqlQuery query;
+    query.prepare("SELECT * from equipement where id = :id");
+    query.bindValue(":id", id);
+    query.exec();
+
+    return query;
+}
