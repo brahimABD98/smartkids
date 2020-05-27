@@ -29,7 +29,7 @@ bool modifier(int,QString,QString,float,QString);
 QSqlQueryModel* trie(int index);
 QSqlQuery rechercher_id(int id);
 QSqlQuery rechercher_num(int id);
-
+QSqlQueryModel * afficher_staff_technique ();
 private:
 
     QString nom,prenom,spcialite;

@@ -136,9 +136,16 @@ QSqlQuery instituteur::rechercher_id(int id)
 
     return query;
 }
-QSqlQueryModel * instituteur::afficher_salle(){
-    QSqlQueryModel * model= new QSqlQueryModel();
-    model->setQuery("select NUMS from salles");
-    model->setHeaderData(0, Qt::Horizontal, QObject::tr("salle"));
+QSqlQueryModel * instituteur::afficher_instituteur()
+{QSqlQueryModel * model= new QSqlQueryModel();
+
+model->setQuery("select * from instituteur ");
+model->setHeaderData(0, Qt::Horizontal, QObject::tr("id"));
+model->setHeaderData(1, Qt::Horizontal, QObject::tr("nom"));
+model->setHeaderData(2, Qt::Horizontal, QObject::tr("prenom"));
+model->setHeaderData(3, Qt::Horizontal, QObject::tr("diplome"));
+model->setHeaderData(4, Qt::Horizontal, QObject::tr("salaire"));
+model->setHeaderData(5, Qt::Horizontal, QObject::tr("exprience"));
+model->setHeaderData(6, Qt::Horizontal, QObject::tr("niveau"));
     return model;
 }

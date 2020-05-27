@@ -26,6 +26,7 @@ public:
  bool modifier(int,QString,int);
   QSqlQueryModel * rechercher (const QString &aux);
  QSqlQueryModel* trie(int index);
+ QSqlQueryModel * afficher_compte ();
  private:
 
      QString username;

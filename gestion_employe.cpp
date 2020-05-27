@@ -22,7 +22,9 @@ gestion_employe::gestion_employe(QWidget *parent) :
     ui(new Ui::gestion_employe)
 {
     ui->setupUi(this);
-
+ui->tableView->setModel(tmpinstituteur.afficher_instituteur());
+ui->tablestaff_technique->setModel(tmpstaff_technique.afficher_staff_technique());
+ui->tableView_2->setModel(tmpcompte.afficher_compte());
 }
 
 gestion_employe::~gestion_employe()
@@ -353,18 +355,18 @@ void gestion_employe::on_tablestaff_technique_doubleClicked(const QModelIndex &i
 
         QString nom;
         QString qt;
-
+        QString idd;
         int id = index.data().toInt();
         QSqlQuery query=tmpequipement.rechercher_num(id);
         if (query.next()) {
-
+        idd = query.value(0).toString();
         nom= query.value(1).toString();
         qt= query.value(2).toString();
         }
 
 
         QMessageBox::information(nullptr, QObject::tr("equipement"),
-                          QObject::tr(" Nom de produit : %1 \n Quantite : %2  ") .arg(nom) .arg(qt), QMessageBox::Cancel);
+                          QObject::tr(" id : %0 \n  Nom de produit : %1 \n Quantite : %2  ") .arg(idd) .arg(nom) .arg(qt), QMessageBox::Cancel);
 
     }
  }

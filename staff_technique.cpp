@@ -146,9 +146,21 @@ QSqlQuery staff_technique::rechercher_id(int id)
 QSqlQuery staff_technique::rechercher_num(int id)
 {
     QSqlQuery query;
-    query.prepare("SELECT * from equipement where id = :id");
+    query.prepare("SELECT * from equipement where ID = :id");
     query.bindValue(":id", id);
     query.exec();
 
     return query;
+}
+
+QSqlQueryModel * staff_technique::afficher_staff_technique()
+{QSqlQueryModel * model= new QSqlQueryModel();
+
+model->setQuery("select * from staff_technique ");
+model->setHeaderData(0, Qt::Horizontal, QObject::tr("id"));
+model->setHeaderData(1, Qt::Horizontal, QObject::tr("nom "));
+model->setHeaderData(2, Qt::Horizontal, QObject::tr("prenom"));
+model->setHeaderData(3, Qt::Horizontal, QObject::tr("salaire"));
+model->setHeaderData(4, Qt::Horizontal, QObject::tr("spcialite"));
+    return model;
 }

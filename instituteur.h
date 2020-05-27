@@ -23,7 +23,7 @@ public:
      QString get_niveau();
     bool ajouter();
 QSqlQueryModel * afficherinstituteur ();
-QSqlQueryModel * afficher_salle ();
+QSqlQueryModel * afficher_instituteur ();
      QSqlQueryModel * afficher();
  bool supprimer(int);
  bool modifier(int,QString,QString,QString,float,int,QString);

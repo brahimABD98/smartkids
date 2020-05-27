@@ -141,7 +141,7 @@ QSqlQueryModel * equipement::affichersalle ()
 QSqlQuery equipement::rechercher_num(int id)
 {
     QSqlQuery query;
-    query.prepare("SELECT * from equipement where id = :id");
+    query.prepare("SELECT * from equipement where ID = :id");
     query.bindValue(":id", id);
     query.exec();
 
