@@ -2498,16 +2498,16 @@ border-image: url(:/new/prefix1/icon/perso.png);</string>
     <property name="geometry">
      <rect>
       <x>140</x>
-      <y>20</y>
+      <y>2</y>
       <width>75</width>
-      <height>23</height>
+      <height>51</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true"/>
+     <string notr="true">image: url(:/icon/compte2.png);</string>
     </property>
     <property name="text">
-     <string>compte</string>
+     <string/>
     </property>
    </widget>
   </widget>
