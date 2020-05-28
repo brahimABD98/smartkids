@@ -178,7 +178,7 @@ void gestion_employe::on_pushButton_modi_ins_clicked()
        ui->tableView->setModel(tmpinstituteur.trie(0));
     }
 
-    void gestion_employe::on_pushButton_7_clicked()
+    void gestion_employe::on_pushButton_8_clicked()
     {
          ui->tableView->setModel(tmpinstituteur.trie(1));
     }
@@ -317,7 +317,7 @@ void gestion_employe::on_pushButton_6_clicked()
    ui->tablestaff_technique->setModel(tmpstaff_technique.trie(0));
 }
 
-void gestion_employe::on_pushButton_dec_clicked()
+void gestion_employe::on_pushButton_7_clicked()
 {
      ui->tablestaff_technique->setModel(tmpstaff_technique.trie(1));
 }
@@ -436,6 +436,24 @@ else
 
 }
 
+
+
+void gestion_employe::on_lineEdit_3_textChanged()
+{
+    if(ui->lineEdit_3->text() == "")
+        {
+            ui->tableView_2->setModel(tmpcompte.afficher());
+        }
+        else
+        {
+             ui->tableView_2->setModel(tmpcompte.rechercher(ui->lineEdit_3->text()));
+        }
+
+
+
+
+}
+
 void gestion_employe::on_pushButton_27_clicked()
 {
     hide();
@@ -463,3 +481,47 @@ void gestion_employe::on_pushButton_eleves_2_clicked()
 
 
 
+
+void gestion_employe::on_lineEdit_59_textChanged()
+{
+    int id=ui->lineEdit_59->text().toInt();
+
+    QSqlQuery query=tmpcompte.rechercher_id(id);
+    QString username,password;
+
+
+
+         if (query.next())
+        {
+
+        username= query.value(1).toString();
+        ui->lineEdit_58->setText(username);
+        password= query.value(2).toString();
+        ui->lineEdit_57->setText(password);
+
+
+
+        }
+}
+
+void gestion_employe::on_tableView_2_doubleClicked(const QModelIndex &index)
+{
+    if ((index.isValid()) && (index.column() == 0)  ) {
+
+        QString nom;
+        QString prenom;
+        QString diplome;
+        int id = index.data().toInt();
+        QSqlQuery query=tmpinstituteur.rechercher_id(id);
+        if (query.next()) {
+        nom=query.value(1).toString();
+        prenom= query.value(2).toString();
+        diplome= query.value(3).toString();
+        }
+
+
+        QMessageBox::information(nullptr, QObject::tr("instituteur"),
+                          QObject::tr(" nom : %1 \n prenom : %2 \n diplome: %3 ").arg(nom) .arg(prenom).arg(diplome), QMessageBox::Cancel);
+
+    }
+ }

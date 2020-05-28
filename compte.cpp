@@ -78,8 +78,30 @@ QSqlQueryModel * compte::afficher_compte()
 
 model->setQuery("select * from compte ");
 model->setHeaderData(0, Qt::Horizontal, QObject::tr("id"));
-model->setHeaderData(1, Qt::Horizontal, QObject::tr("nusername"));
+model->setHeaderData(1, Qt::Horizontal, QObject::tr("username"));
 model->setHeaderData(2, Qt::Horizontal, QObject::tr("password"));
 
     return model;
+}
+QSqlQueryModel * compte::rechercher (const QString &aux)
+
+{
+    QSqlQueryModel * model = new QSqlQueryModel();
+
+    model->setQuery("select * from compte where ((ID || USERNAME || PASSWORD ) LIKE '%"+aux+"%')");
+    model->setHeaderData(0, Qt::Horizontal, QObject::tr("id"));
+    model->setHeaderData(1, Qt::Horizontal, QObject::tr("username "));
+    model->setHeaderData(2, Qt::Horizontal, QObject::tr("password"));
+
+    return model;
+}
+
+QSqlQuery compte::rechercher_id(int id)
+{
+    QSqlQuery query;
+    query.prepare("SELECT * from compte where ID = :id");
+    query.bindValue(":id", id);
+    query.exec();
+
+    return query;
 }

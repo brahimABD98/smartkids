@@ -44,14 +44,14 @@ private slots:
      void on_pushButton_4_clicked();
      void on_lineEdit_textChanged();
      void on_pushButton_tric_clicked();
-     void on_pushButton_7_clicked();
+     void on_pushButton_8_clicked();
      void on_lineEdit_2_textChanged();
       void on_pushButton_6_clicked();
-      void on_pushButton_dec_clicked();
+      void on_pushButton_7_clicked();
       void on_lineEdit_44_textChanged();
       void on_lineEdit_35_textChanged();
       void on_pushButton_27_clicked();
-
+      void on_lineEdit_3_textChanged();
       void on_pushButton_17_clicked();
 
       void on_pushButton_eleves_2_clicked();
@@ -68,6 +68,9 @@ private slots:
       void on_pushButton_sup_5_clicked();
  void on_tableView_doubleClicked(const QModelIndex &index);
  void on_tablestaff_technique_doubleClicked(const QModelIndex &index);
+ void on_lineEdit_59_textChanged();
+ void on_tableView_2_doubleClicked(const QModelIndex &index);
+
 private:
     Ui::gestion_employe *ui;
     staff_technique tmpstaff_technique;
