@@ -11,7 +11,11 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Smart Kids</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="icon.qrc">
+    <normaloff>:/new/prefix1/icon/logo.webp</normaloff>:/new/prefix1/icon/logo.webp</iconset>
   </property>
   <property name="styleSheet">
    <string notr="true">background-color: rgb(207, 196, 225);</string>
@@ -2173,6 +2177,8 @@ border-image: url(:/new/prefix1/icon/salles.png);</string>
   <zorder>pushButton_home_2</zorder>
   <zorder>frame_4</zorder>
  </widget>
- <resources/>
+ <resources>
+  <include location="icon.qrc"/>
+ </resources>
  <connections/>
 </ui>

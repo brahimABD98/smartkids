@@ -71,6 +71,8 @@ private slots:
 
     void on_pushButton_17_clicked();
 
+    void on_pushButton_16_clicked();
+
     void on_table_club_doubleClicked(const QModelIndex &index);
 
     void on_pushButton_eleves_4_clicked();

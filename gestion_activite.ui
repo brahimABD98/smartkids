@@ -11,7 +11,11 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Smart Kids</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="icon.qrc">
+    <normaloff>:/new/prefix1/icon/logo.webp</normaloff>:/new/prefix1/icon/logo.webp</iconset>
   </property>
   <property name="styleSheet">
    <string notr="true">background-color: rgb(207, 196, 225);</string>
@@ -2490,6 +2494,8 @@ border-image: url(:/new/prefix1/icon/Fichier 1.png);</string>
    </property>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="icon.qrc"/>
+ </resources>
  <connections/>
 </ui>
