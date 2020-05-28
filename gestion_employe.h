@@ -71,6 +71,10 @@ private slots:
  void on_lineEdit_59_textChanged();
  void on_tableView_2_doubleClicked(const QModelIndex &index);
 
+ void on_pushButton_10_clicked();
+
+ void on_pushButton_13_clicked();
+
 private:
     Ui::gestion_employe *ui;
     staff_technique tmpstaff_technique;

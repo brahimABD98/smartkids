@@ -105,3 +105,23 @@ QSqlQuery compte::rechercher_id(int id)
 
     return query;
 }
+
+QSqlQueryModel* compte::trie(int index)
+{
+    QSqlQueryModel* model = new QSqlQueryModel();
+    if(index == 0)
+    {
+        model->setQuery("select *FROM compte ORDER BY id ASC");
+    }
+    else
+    {
+        model->setQuery("select *FROM compte ORDER BY id DESC ");
+    }
+
+
+    model->setHeaderData(0, Qt::Horizontal, QObject::tr("id"));
+    model->setHeaderData(1, Qt::Horizontal, QObject::tr("username"));
+    model->setHeaderData(2, Qt::Horizontal, QObject::tr("password"));
+
+    return model;
+}

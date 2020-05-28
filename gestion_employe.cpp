@@ -525,3 +525,13 @@ void gestion_employe::on_tableView_2_doubleClicked(const QModelIndex &index)
 
     }
  }
+
+void gestion_employe::on_pushButton_10_clicked()
+{
+    ui->tableView_2->setModel(tmpcompte.trie(0));
+}
+
+void gestion_employe::on_pushButton_13_clicked()
+{
+     ui->tableView_2->setModel(tmpcompte.trie(1));
+}

@@ -2244,6 +2244,32 @@ border-image: url(:/new/prefix1/icon/exporter.png);</string>
       <string>Rechercher :</string>
      </property>
     </widget>
+    <widget class="QPushButton" name="pushButton_10">
+     <property name="geometry">
+      <rect>
+       <x>330</x>
+       <y>450</y>
+       <width>101</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>trie croissante</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_13">
+     <property name="geometry">
+      <rect>
+       <x>430</x>
+       <y>450</y>
+       <width>101</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>trie decroissante</string>
+     </property>
+    </widget>
    </widget>
   </widget>
   <widget class="QFrame" name="frame">
