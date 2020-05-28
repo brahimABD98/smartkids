@@ -1,4 +1,5 @@
 #include "gestion_activite.h"
+#include "gestion_employe.h"
 #include "ui_gestion_activite.h"
 #include "club.h"
 #include "excursion.h"
@@ -451,6 +452,12 @@ void gestion_activite::on_pushButton_17_clicked()
     G.exec();
 }
 
+void gestion_activite::on_pushButton_16_clicked()
+{
+    hide();
+    gestion_employe Ge;
+    Ge.exec();
+}
 
 
 void gestion_activite::on_table_club_doubleClicked(const QModelIndex &index)
