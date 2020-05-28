@@ -51,7 +51,7 @@
     </rect>
    </property>
    <property name="currentIndex">
-    <number>2</number>
+    <number>1</number>
    </property>
    <widget class="QWidget" name="page_6">
     <widget class="QTableView" name="tableView">
@@ -1687,7 +1687,7 @@ background-color: rgb(171, 152, 203);</string>
        <x>0</x>
        <y>80</y>
        <width>581</width>
-       <height>341</height>
+       <height>321</height>
       </rect>
      </property>
     </widget>
@@ -1696,8 +1696,8 @@ background-color: rgb(171, 152, 203);</string>
       <rect>
        <x>590</x>
        <y>80</y>
-       <width>271</width>
-       <height>341</height>
+       <width>251</width>
+       <height>321</height>
       </rect>
      </property>
      <property name="styleSheet">
@@ -1981,8 +1981,8 @@ background-color: rgb(171, 152, 203);</string>
       <widget class="QPushButton" name="pushButton_modcomp">
        <property name="geometry">
         <rect>
-         <x>160</x>
-         <y>300</y>
+         <x>120</x>
+         <y>270</y>
          <width>75</width>
          <height>23</height>
         </rect>
@@ -2096,7 +2096,7 @@ font-weight:bold;</string>
      <property name="geometry">
       <rect>
        <x>0</x>
-       <y>430</y>
+       <y>410</y>
        <width>271</width>
        <height>71</height>
       </rect>
@@ -2247,8 +2247,8 @@ border-image: url(:/new/prefix1/icon/exporter.png);</string>
     <widget class="QPushButton" name="pushButton_10">
      <property name="geometry">
       <rect>
-       <x>330</x>
-       <y>450</y>
+       <x>310</x>
+       <y>430</y>
        <width>101</width>
        <height>31</height>
       </rect>
@@ -2261,7 +2261,7 @@ border-image: url(:/new/prefix1/icon/exporter.png);</string>
      <property name="geometry">
       <rect>
        <x>430</x>
-       <y>450</y>
+       <y>430</y>
        <width>101</width>
        <height>31</height>
       </rect>
@@ -2277,7 +2277,7 @@ border-image: url(:/new/prefix1/icon/exporter.png);</string>
     <rect>
      <x>10</x>
      <y>10</y>
-     <width>381</width>
+     <width>341</width>
      <height>71</height>
     </rect>
    </property>
@@ -2292,36 +2292,11 @@ border-radius: 10px;</string>
    <property name="frameShadow">
     <enum>QFrame::Raised</enum>
    </property>
-   <widget class="QPushButton" name="pushButton_eleves_2">
-    <property name="geometry">
-     <rect>
-      <x>90</x>
-      <y>10</y>
-      <width>61</width>
-      <height>61</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">border-image: url(:/new/prefix1/icon/eleves.png);</string>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="autoDefault">
-     <bool>true</bool>
-    </property>
-    <property name="default">
-     <bool>true</bool>
-    </property>
-    <property name="flat">
-     <bool>true</bool>
-    </property>
-   </widget>
    <widget class="QPushButton" name="pushButton_17">
     <property name="geometry">
      <rect>
-      <x>240</x>
-      <y>10</y>
+      <x>205</x>
+      <y>7</y>
       <width>61</width>
       <height>61</height>
      </rect>
@@ -2347,8 +2322,8 @@ border-image: url(:/new/prefix1/icon/calcul.png);</string>
    <widget class="QPushButton" name="pushButton_12">
     <property name="geometry">
      <rect>
-      <x>310</x>
-      <y>10</y>
+      <x>273</x>
+      <y>7</y>
       <width>61</width>
       <height>61</height>
      </rect>
@@ -2374,7 +2349,7 @@ border-image: url(:/new/prefix1/icon/stock.png);</string>
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>10</y>
+      <y>7</y>
       <width>61</width>
       <height>61</height>
      </rect>
@@ -2398,8 +2373,8 @@ border-image: url(:/new/prefix1/icon/stock.png);</string>
    <widget class="QPushButton" name="pushButton_27">
     <property name="geometry">
      <rect>
-      <x>170</x>
-      <y>10</y>
+      <x>140</x>
+      <y>7</y>
       <width>61</width>
       <height>61</height>
      </rect>
@@ -2421,11 +2396,36 @@ border-image: url(:/new/prefix1/icon/perso.png);</string>
      <bool>true</bool>
     </property>
    </widget>
+   <widget class="QPushButton" name="pushButton_eleves_2">
+    <property name="geometry">
+     <rect>
+      <x>75</x>
+      <y>7</y>
+      <width>61</width>
+      <height>61</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/new/prefix1/icon/GestionES.png);</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="autoDefault">
+     <bool>true</bool>
+    </property>
+    <property name="default">
+     <bool>true</bool>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
+    </property>
+   </widget>
   </widget>
   <widget class="QFrame" name="frame_4">
    <property name="geometry">
     <rect>
-     <x>390</x>
+     <x>350</x>
      <y>20</y>
      <width>221</width>
      <height>51</height>
@@ -2502,6 +2502,9 @@ border-image: url(:/new/prefix1/icon/perso.png);</string>
       <width>75</width>
       <height>23</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
     </property>
     <property name="text">
      <string>compte</string>

@@ -17,6 +17,7 @@
 #include "gestion.h"
 #include "equipement.h"
 #include "aliment.h"
+#include"stock.h"
 gestion_employe::gestion_employe(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::gestion_employe)
@@ -534,4 +535,18 @@ void gestion_employe::on_pushButton_10_clicked()
 void gestion_employe::on_pushButton_13_clicked()
 {
      ui->tableView_2->setModel(tmpcompte.trie(1));
+}
+
+void gestion_employe::on_pushButton_15_clicked()
+{
+    hide();
+    Gestion g;
+    g.exec();
+}
+
+void gestion_employe::on_pushButton_12_clicked()
+{
+    hide();
+    stock st;
+    st.exec();
 }
