@@ -11,7 +11,11 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Smart Kids</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="../icon.qrc">
+    <normaloff>:/new/prefix1/icon/logo.webp</normaloff>:/new/prefix1/icon/logo.webp</iconset>
   </property>
   <property name="styleSheet">
    <string notr="true">background-color: rgb(207, 196, 225);</string>
@@ -71,7 +75,7 @@ border-radius: 10px;</string>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">border-image: url(:/new/prefix1/icon/eleves.png);</string>
+     <string notr="true">border-image: url(:/new/prefix1/icon/GestionES.png);</string>
     </property>
     <property name="text">
      <string/>
@@ -115,8 +119,8 @@ border-image: url(:/new/prefix1/icon/perso.png);</string>
    <widget class="QPushButton" name="pushButton_17">
     <property name="geometry">
      <rect>
-      <x>200</x>
-      <y>0</y>
+      <x>207</x>
+      <y>5</y>
       <width>61</width>
       <height>61</height>
      </rect>
@@ -142,7 +146,7 @@ border-image: url(:/new/prefix1/icon/calcul.png);</string>
    <widget class="QPushButton" name="pushButton_12">
     <property name="geometry">
      <rect>
-      <x>270</x>
+      <x>275</x>
       <y>4</y>
       <width>61</width>
       <height>61</height>
@@ -1811,9 +1815,9 @@ font-weight:bold;</string>
   <widget class="QFrame" name="frame_4">
    <property name="geometry">
     <rect>
-     <x>350</x>
+     <x>355</x>
      <y>10</y>
-     <width>151</width>
+     <width>91</width>
      <height>61</height>
     </rect>
    </property>
@@ -1828,35 +1832,10 @@ border-radius: 10px;</string>
    <property name="frameShadow">
     <enum>QFrame::Raised</enum>
    </property>
-   <widget class="QPushButton" name="pushButton_28">
-    <property name="geometry">
-     <rect>
-      <x>18</x>
-      <y>5</y>
-      <width>51</width>
-      <height>51</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">border-image: url(:/new/prefix1/icon/eleves.png);</string>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="autoDefault">
-     <bool>true</bool>
-    </property>
-    <property name="default">
-     <bool>true</bool>
-    </property>
-    <property name="flat">
-     <bool>true</bool>
-    </property>
-   </widget>
    <widget class="QPushButton" name="pushButton_26_charrad_stat">
     <property name="geometry">
      <rect>
-      <x>80</x>
+      <x>10</x>
       <y>0</y>
       <width>61</width>
       <height>61</height>
@@ -1882,6 +1861,8 @@ border-image: url(:/new/prefix1/icon/calcul.png);</string>
    </widget>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="../icon.qrc"/>
+ </resources>
  <connections/>
 </ui>

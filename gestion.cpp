@@ -234,7 +234,7 @@ void Gestion::on_pushButton_PDFE_clicked()
                     <<  QString("<title>%1</title>\n").arg("eleve")
                     <<  "</head>\n"
                     "<body bgcolor=#CFC4E1 link=#5000A0>\n"
-                        "<img src='D:/Users/alaam/Documents/SMART/icon/logo.webp' width='100' height='100'>\n"
+                        ":/new/prefix1/icon/logo.webp' width='100' height='100'>\n"
                         "<h1>Liste des eleves</h1>"
 
 
@@ -446,7 +446,7 @@ void Gestion::on_pushButton_PDFS_clicked()
                     <<  QString("<title>%1</title>\n").arg("salle")
                     <<  "</head>\n"
                     "<body bgcolor=#CFC4E1 link=#5000A0>\n"
-                        "<img src='D:/Users/alaam/Documents/SMART/icon/logo.webp' width='100' height='100'>\n"
+                        "<img src=':/new/prefix1/icon/logo.webp' width='100' height='100'>\n"
                         "<h1>Liste des salles</h1>"
 
 
@@ -707,7 +707,7 @@ void Gestion::on_pushButton_PDFT_clicked()
                         <<  QString("<title>%1</title>\n").arg("bus")
                         <<  "</head>\n"
                         "<body bgcolor=#CFC4E1 link=#5000A0>\n"
-                            "<img src='D:/Users/alaam/Documents/SMART/icon/logo.webp' width='100' height='100'>\n"
+                            "<img src=':/new/prefix1/icon/logo.webp' width='100' height='100'>\n"
                             "<h1>Liste des eleves</h1>"
 
 

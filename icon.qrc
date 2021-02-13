@@ -23,6 +23,8 @@
         <file>icon/bus.png</file>
         <file>icon/reclamation.png</file>
         <file>icon/biblio.png</file>
+        <file>icon/staff.png</file>
+        <file>icon/compte.png</file>
     </qresource>
     <qresource prefix="/">
         <file>icon/bus.png</file>

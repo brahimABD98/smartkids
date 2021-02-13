@@ -11,7 +11,11 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Smart Kids</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="icon.qrc">
+    <normaloff>:/new/prefix1/icon/logo.webp</normaloff>:/new/prefix1/icon/logo.webp</iconset>
   </property>
   <property name="styleSheet">
    <string notr="true">background-color: rgb(207, 196, 225);</string>
@@ -1150,7 +1154,7 @@ border : 1px solid;
 ;}</string>
      </property>
      <property name="currentIndex">
-      <number>0</number>
+      <number>2</number>
      </property>
      <widget class="QWidget" name="page_8">
       <widget class="QLabel" name="label_10">
@@ -2426,9 +2430,9 @@ border-image: url(:/new/prefix1/icon/perso.png);</string>
    <property name="geometry">
     <rect>
      <x>350</x>
-     <y>20</y>
-     <width>221</width>
-     <height>51</height>
+     <y>15</y>
+     <width>201</width>
+     <height>61</height>
     </rect>
    </property>
    <property name="styleSheet">
@@ -2446,14 +2450,14 @@ border-radius: 10px;</string>
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>0</y>
-      <width>61</width>
+      <y>5</y>
+      <width>51</width>
       <height>51</height>
      </rect>
     </property>
     <property name="styleSheet">
      <string notr="true">
-border-image: url(:/new/prefix1/icon/perso.png);</string>
+border-image: url(:/new/prefix1/icon/staff.png);</string>
     </property>
     <property name="text">
      <string/>
@@ -2471,9 +2475,9 @@ border-image: url(:/new/prefix1/icon/perso.png);</string>
    <widget class="QPushButton" name="pushButton_29">
     <property name="geometry">
      <rect>
-      <x>80</x>
-      <y>0</y>
-      <width>61</width>
+      <x>75</x>
+      <y>5</y>
+      <width>51</width>
       <height>51</height>
      </rect>
     </property>
@@ -2498,13 +2502,13 @@ border-image: url(:/new/prefix1/icon/perso.png);</string>
     <property name="geometry">
      <rect>
       <x>140</x>
-      <y>2</y>
-      <width>75</width>
-      <height>51</height>
+      <y>7</y>
+      <width>55</width>
+      <height>55</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">image: url(:/icon/compte2.png);</string>
+     <string notr="true">border-image: url(:/new/prefix1/icon/compte.png);</string>
     </property>
     <property name="text">
      <string/>
@@ -2512,6 +2516,8 @@ border-image: url(:/new/prefix1/icon/perso.png);</string>
    </widget>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="icon.qrc"/>
+ </resources>
  <connections/>
 </ui>
