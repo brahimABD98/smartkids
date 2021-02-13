@@ -3,6 +3,7 @@
 #include <QString>
 #include <QSqlQuery>
 #include <QSqlQueryModel>
+//cv
 class Bibliotheque
 {public:
     Bibliotheque();
