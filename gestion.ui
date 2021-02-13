@@ -206,7 +206,7 @@ border-image: url(:/new/prefix1/icon/stock.png);</string>
     </rect>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>2</number>
    </property>
    <widget class="QWidget" name="page_6">
     <widget class="QTableView" name="tableView_E">
@@ -1617,7 +1617,7 @@ text-decoration: underline;
 font-weight:bold;</string>
        </property>
        <property name="text">
-        <string>Ajouter une Bus</string>
+        <string>Ajouter un Bus</string>
        </property>
       </widget>
       <widget class="QLineEdit" name="lineEdit_Aj_id_T">
@@ -1819,7 +1819,7 @@ text-decoration: underline;
 font-weight:bold;</string>
        </property>
        <property name="text">
-        <string>Modifier une Bus</string>
+        <string>Modifier un Bus</string>
        </property>
       </widget>
       <widget class="QPushButton" name="pushButton_ModifTrans">
@@ -1957,7 +1957,7 @@ text-decoration: underline;
 font-weight:bold;</string>
        </property>
        <property name="text">
-        <string>Supprimer une Bus</string>
+        <string>Supprimer un Bus</string>
        </property>
       </widget>
       <widget class="QLineEdit" name="lineEdit_Su_id_T">

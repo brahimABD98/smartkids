@@ -338,7 +338,7 @@ void gestion_activite::on_pushButton_PDF_club_clicked()
                     <<  QString("<title>%1</title>\n").arg("eleve")
                     <<  "</head>\n"
                     "<body bgcolor=#CFC4E1 link=#5000A0>\n"
-                        "<img src='C:/Users/ksemt/Desktop/final/icon/logo.webp' width='100' height='100'>\n"
+                        "<img src=':/new/prefix1/icon/logo.webp' width='100' height='100'>\n"
                         "<h1>Liste des clubs</h1>"
 
 
@@ -391,7 +391,7 @@ void gestion_activite::on_pushButton_PDF_exc_clicked()
                     <<  QString("<title>%1</title>\n").arg("eleve")
                     <<  "</head>\n"
                     "<body bgcolor=#CFC4E1 link=#5000A0>\n"
-                        "<img src='C:/Users/ksemt/Desktop/final/icon/logo.webp' width='100' height='100'>\n"
+                        "<img src=':/new/prefix1/icon/logo.webp' width='100' height='100'>\n"
                         "<h1>Liste des excursions</h1>"
 
 
@@ -660,7 +660,7 @@ void gestion_activite::on_pushButton_PDF_livre_clicked()
                     <<  QString("<title>%1</title>\n").arg("livre")
                     <<  "</head>\n"
                     "<body bgcolor=#CFC4E1 link=#5000A0>\n"
-                        "<img src='C:/Users/ksemt/Desktop/final/icon/logo.webp' width='100' height='100'>\n"
+                        "<img src=':/new/prefix1/icon/logo.webp' width='100' height='100'>\n"
                         "<h1>Liste des livres</h1>"
 
 
