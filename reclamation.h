@@ -13,7 +13,7 @@ class reclamation
     public:
         reclamation();
         reclamation(int ,QString,QDate,QString,QString);
-
+//bnj
         bool ajouter();
 
         bool modifier_reclamation(int,QString,QDate,QString,QString);
